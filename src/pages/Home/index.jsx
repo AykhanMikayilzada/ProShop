@@ -1,8 +1,7 @@
 import React from "react";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import FooterSide from "../../components/FooterSide";
 import HomeMainSide from "../../components/HomeMainSide";
-import { Box } from "@chakra-ui/react";
 import HomeWhoWeAre from "../../components/HomeWhoWeAre";
 
 function Home() {
@@ -10,8 +9,7 @@ function Home() {
     <>
         <Header />
         <HomeMainSide />
-        <HomeWhoWeAre />
-        <Footer />
+        <FooterSide />
     </>
   );
 }

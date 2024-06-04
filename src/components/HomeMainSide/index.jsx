@@ -1,13 +1,14 @@
 import React from "react";
 import SimpleSlider from "../SimpleSlider";
-import { Box, Button, Text } from "@chakra-ui/react";
 import HomeCards from "../HomeCards";
+import HomeWhoWeAre from "../HomeWhoWeAre";
 
 const HomeMainSide = () => {
   return (
     <>
       <SimpleSlider />
       <HomeCards />
+      <HomeWhoWeAre />
     </>
   );
 };
