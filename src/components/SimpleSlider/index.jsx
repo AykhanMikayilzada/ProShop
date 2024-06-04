@@ -1,45 +1,76 @@
-import React from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import { Image, Box } from "@chakra-ui/react"; 
-import img1 from "../Header/imgs/main.svg";
+import React from "react";
+import { Carousel } from "react-responsive-carousel";
+import { Image, Box, Heading, Text } from "@chakra-ui/react";
 import img2 from "../Header/imgs/proshoplogo.svg";
-import img3 from "../Header/imgs/main.svg";
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 const SimpleSlider = () => {
   const imageStyle = {
-    position: 'relative',
-    width: '100%',
-    height: '100%',
-    background: 'linear-gradient(to right, #008475, #F46036)',
-    borderRadius: '8px',
+    position: "relative",
+    width: "100%",
+    height: "100%",
+    background: "linear-gradient(to right, #008475, #F46036)",
+    borderRadius: "8px",
   };
 
   return (
-    <Carousel 
-      showArrows={true} 
-      showThumbs={false} 
-      infiniteLoop={true} 
-      autoPlay={true} 
+    <Carousel
+      showArrows={true}
+      showThumbs={false}
+      infiniteLoop={true}
+      autoPlay={true}
       interval={3000}
     >
       <div>
-        <Box style={imageStyle}>
-          <Image src={img1} alt="Image 1" pos="absolute" right="0" />
+        <Box style={imageStyle} display="flex" justifyContent="space-evenly">
+          <Box display="flex" flexDirection="column" h="500px">
+            <Heading mt="114px" ml="221px" textColor="white" textAlign="start">
+              Heading
+            </Heading>
+            <Text textAlign="start" ml="221px" mt="10px" textColor="white" maxW="350px">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+              cumque fugit nobis sint nulla provident inventore nisi commodi
+              incidunt, architecto ea minima, et soluta natus! Consequuntur
+              alias blanditiis asperiores odit?
+            </Text>
+          </Box>
+          <Image src={img2} alt="Image 1" maxW="500px" mr="60px"/>
         </Box>
       </div>
       <div>
-        <Box style={imageStyle}>
-          <Image src={img2} alt="Image 2" />
+      <Box style={imageStyle} display="flex" justifyContent="space-evenly">
+          <Box display="flex" flexDirection="column" h="500px">
+            <Heading mt="114px" ml="221px" textColor="white" textAlign="start">
+              Heading
+            </Heading>
+            <Text textAlign="start" ml="221px" mt="10px" textColor="white" maxW="350px">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+              cumque fugit nobis sint nulla provident inventore nisi commodi
+              incidunt, architecto ea minima, et soluta natus! Consequuntur
+              alias blanditiis asperiores odit?
+            </Text>
+          </Box>
+          <Image src={img2} alt="Image 1" maxW="500px" mr="60px"/>
         </Box>
       </div>
       <div>
-        <Box style={imageStyle}>
-          <Image src={img3} alt="Image 3" />
+      <Box style={imageStyle} display="flex" justifyContent="space-evenly">
+          <Box display="flex" flexDirection="column" h="500px">
+            <Heading mt="114px" ml="221px" textColor="white" textAlign="start">
+              Heading
+            </Heading>
+            <Text textAlign="start" ml="221px" mt="10px" textColor="white" maxW="350px">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti,
+              cumque fugit nobis sint nulla provident inventore nisi commodi
+              incidunt, architecto ea minima, et soluta natus! Consequuntur
+              alias blanditiis asperiores odit?
+            </Text>
+          </Box>
+          <Image src={img2} alt="Image 1" maxW="500px" mr="60px"/>
         </Box>
       </div>
     </Carousel>
   );
-}
+};
 
 export default SimpleSlider;

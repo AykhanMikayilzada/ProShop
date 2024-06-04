@@ -14,7 +14,7 @@ function Header() {
         <Box className="logo">
           <Image src={Logo} alt="logo" w="120px" />
         </Box>
-        <Box className="menu" display="flex" gap="40px" pt="22px" pb="22px">
+        <Box className="menu" display="flex" gap="40px" pt="33px" pb="33px">
           <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
             Home
           </Text>
