@@ -1,71 +1,34 @@
 import React from "react";
-import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
-import {
-  Box,
-  Text,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-} from "@chakra-ui/react";
 import Logo from "./imgs/proshoplogo.svg";
+import { Box, Image, Text } from "@chakra-ui/react";
 
 function Header() {
   return (
     <>
       <Box
-        w="100%"
-        h="90px"
-        bg="black"
         display="flex"
         justifyContent="space-evenly"
         alignItems="center"
-        className="mainBox"
+        className="header main"
       >
-        <Box w="200px" className="Logo">
-          <img src={Logo} alt="logo" />
+        <Box className="logo">
+          <Image src={Logo} alt="logo" w="120px" />
         </Box>
-
-        <Box
-          className="Menu"
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          gap="30px"
-        >
-          <Text textColor="#CDAD68">
-            <a href="#">Home</a>
+        <Box className="menu" display="flex" gap="40px" pt="22px" pb="22px">
+          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+            Home
           </Text>
-
-          <Text textColor="#CDAD68">
-            <a href="#">About</a>
+          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+            About
           </Text>
-
-          <Text textColor="#CDAD68">
-            <a href="#">Partners</a>
+          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+            Partners
           </Text>
-
-          <Text textColor="#CDAD68">
-            <Menu isLazy>
-              <MenuButton>
-                Services <ChevronDownIcon />
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Auto Branding</MenuItem>
-                <MenuItem>Bilboards</MenuItem>
-                <MenuItem>Events</MenuItem>
-                <MenuItem>Exibition Stands</MenuItem>
-                <MenuItem>Indoor</MenuItem>
-                <MenuItem>Outdoor</MenuItem>
-                <MenuItem>Polygraph</MenuItem>
-                <MenuItem>Promo</MenuItem>
-                <MenuItem>Shop Stands</MenuItem>
-              </MenuList>
-            </Menu>
+          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+            Services
           </Text>
-
-          <Text textColor="#CDAD68">
-            <a href="#">Contact</a>
+          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+            Contact
           </Text>
         </Box>
       </Box>
