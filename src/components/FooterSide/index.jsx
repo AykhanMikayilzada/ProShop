@@ -138,6 +138,7 @@ function FooterSide() {
               h="2px"
               borderRadius="12px"
               m="auto"
+              opacity="50%"
             ></Box>
             <Text textAlign="center" textColor="#78BAB5">© All Rights Reserved Proshop MMC Privacy Policy</Text>
           </Box>
