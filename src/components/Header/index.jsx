@@ -1,42 +1,129 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import {
+  Box,
+  Image,
+  Text,
+  useDisclosure,
+  IconButton,
+  Drawer,
+  DrawerOverlay,
+  DrawerContent,
+  DrawerHeader,
+  DrawerBody,
+} from "@chakra-ui/react";
+import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "./imgs/proshoplogo.svg";
-import { Box, Image, Text } from "@chakra-ui/react";
 
 function Header() {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box
       display="flex"
-      justifyContent="space-evenly"
+      justifyContent="space-between"
       alignItems="center"
       className="header main"
-      gap="550px"
+      maxW="1440px"
+      mx="auto"
+      px="20px"
+      py="15px"
+      boxSizing="border-box"
+      flexWrap={{ base: "wrap", sm: "nowrap" }}
     >
-      <Box className="logo">
-        <Image src={Logo} alt="logo" w="300px" />
-      </Box>  
-      <Box className="menu" display="flex" gap="40px" pt="53px" pb="53px">
+      <Box className="logo" flexShrink="0" mr={{ base: "20px", sm: "40px" }}>
+        <Image src={Logo} alt="logo" w={{ base: "200px", sm: "300px" }} />
+      </Box>
+      <Box className="menu" display={{ base: "none", sm: "flex" }} gap="40px">
         <Link to="/">
-          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+          <Text
+            fontSize="18px"
+            textColor="#82828B"
+            _hover={{ textColor: "teal", cursor: "pointer" }}
+          >
             Home
           </Text>
         </Link>
         <Link to="/about">
-          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+          <Text
+            fontSize="18px"
+            textColor="#82828B"
+            _hover={{ textColor: "teal", cursor: "pointer" }}
+          >
             About
           </Text>
         </Link>
         <Link to="/products">
-          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+          <Text
+            fontSize="18px"
+            textColor="#82828B"
+            _hover={{ textColor: "teal", cursor: "pointer" }}
+          >
             Products
           </Text>
         </Link>
         <Link to="/contact">
-          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+          <Text
+            fontSize="18px"
+            textColor="#82828B"
+            _hover={{ textColor: "teal", cursor: "pointer" }}
+          >
             Contact
           </Text>
         </Link>
       </Box>
+      <Box display={{ base: "flex", sm: "none" }}>
+        <IconButton
+          aria-label="Open Menu"
+          icon={<HamburgerIcon />}
+          onClick={onOpen}
+          variant="outline"
+        />
+      </Box>
+      <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
+          <DrawerBody>
+            <Link to="/">
+              <Text
+                fontSize="18px"
+                textColor="#82828B"
+                _hover={{ textColor: "teal", cursor: "pointer" }}
+              >
+                Home
+              </Text>
+            </Link>
+            <Link to="/about">
+              <Text
+                fontSize="18px"
+                textColor="#82828B"
+                _hover={{ textColor: "teal", cursor: "pointer" }}
+              >
+                About
+              </Text>
+            </Link>
+            <Link to="/products">
+              <Text
+                fontSize="18px"
+                textColor="#82828B"
+                _hover={{ textColor: "teal", cursor: "pointer" }}
+              >
+                Products
+              </Text>
+            </Link>
+            <Link to="/contact">
+              <Text
+                fontSize="18px"
+                textColor="#82828B"
+                _hover={{ textColor: "teal", cursor: "pointer" }}
+              >
+                Contact
+              </Text>
+            </Link>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Box>
   );
 }

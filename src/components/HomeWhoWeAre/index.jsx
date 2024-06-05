@@ -1,35 +1,29 @@
 import { Box, Text, Image, Button } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import React from "react";
 import comma from "./imgs/comma.svg";
 import signature from "./imgs/signature.svg";
 import pictures from "./imgs/pictures.svg";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
 function HomeWhoWeAre() {
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true, 
-    });
-  }, []);
-
   return (
     <>
       <Box
         className="mainBox"
         display="flex"
-        justifyContent="space-between"
+        justifyContent={{ base: "center", lg: "space-between" }}
+        alignItems="center"
         maxW="1200px"
         m="auto"
         mb="98px"
+        flexWrap="wrap"
       >
         <Box
           className="leftSide"
           display="flex"
           flexDir="column"
           gap="20px"
-          data-aos="fade-right" // Soldan sağa fade animasyonu
+          alignItems={{ base: "center", lg: "flex-start" }}
+          textAlign={{ base: "center", lg: "left" }} // Metni ortalamak için
         >
           <Text fontSize="32px" fontWeight="bold">
             Who we are?
@@ -37,19 +31,28 @@ function HomeWhoWeAre() {
           <Text maxW="500px" fontSize="18px" textColor="#83838C">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit
             velit sunt dolore id adipisci obcaecati eos
-            <br></br>
-            <br></br>
+            <br />
+            <br />
             officiis ipsum quas velit deserunt iure ratione eum odio. Voluptates
-            ipsam alias, ducimus eaque tempora iure velit. 
+            ipsam alias, ducimus eaque tempora iure velit.
           </Text>
-          <Button bg="teal" w="148px" h="54px" textColor="white" _hover={{backgroundColor: "#38B2AC"}}>Readmore</Button>
+          <Button
+            bg="teal"
+            w="148px"
+            h="54px"
+            textColor="white"
+            _hover={{ backgroundColor: "#38B2AC" }}
+          >
+            Readmore
+          </Button>
         </Box>
         <Box
           className="rightSide"
           display="flex"
           flexDir="column"
           gap="10px"
-          data-aos="fade-left" // Sağdan sola fade animasyonu
+          alignItems={{ base: "center", lg: "flex-start" }}
+          textAlign={{ base: "center", lg: "left" }} // Metni ortalamak için
         >
           <Image src={comma} alt="comma" w="40px" />
           <Box className="divider" w="100px" h="3px" bg="black"></Box>
@@ -67,7 +70,7 @@ function HomeWhoWeAre() {
           <Image src={signature} w="70px" />
         </Box>
       </Box>
-      <Image src={pictures} m="auto" mb="48px" data-aos="fade" /> 
+      <Image src={pictures} m="auto" mb="48px" />
     </>
   );
 }

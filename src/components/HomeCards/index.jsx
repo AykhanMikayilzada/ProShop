@@ -15,7 +15,7 @@ function HomeCards() {
   useEffect(() => {
     AOS.init({
       duration: 1000,
-      once: true,  
+      once: true,
     });
   }, []);
 
@@ -47,9 +47,9 @@ function HomeCards() {
           data-aos="fade-down"
           textColor="black"
           fontWeight="bold"
-          fontSize="40px"
+          fontSize={{ base: "30px", sm: "40px" }}
           w="100%"
-          textAlign="start"
+          textAlign="center"
           pb="50px"
         >
           Featured Products
@@ -60,7 +60,7 @@ function HomeCards() {
           justifyContent="space-evenly"
           mt="50px"
           flexWrap="wrap"
-          gap="16px"
+          gap={{ base: "10px", sm: "16px" }}
           pb="50px"
         >
           {images.map((img, index) => (
@@ -68,7 +68,7 @@ function HomeCards() {
               key={index}
               data-aos="fade-down"
               className="card"
-              w="288px"
+              w={{ base: "240px", sm: "288px" }}
               h="200px"
               boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
               bg="white"
@@ -77,9 +77,9 @@ function HomeCards() {
               flexDir="column"
               alignItems="center"
               pos="relative"
-              mt="80px"
+              mt={{ base: "50px", sm: "80px" }}
               overflow="visible"
-              _hover={{cursor:"pointer"}}
+              _hover={{ cursor: "pointer" }}
             >
               <Image
                 src={img}
@@ -98,7 +98,11 @@ function HomeCards() {
                 mt="100px"
                 alignItems="center"
               >
-                <Text textColor="black" fontWeight="bold" fontSize="20px">
+                <Text
+                  textColor="black"
+                  fontWeight="bold"
+                  fontSize={{ base: "16px", sm: "18px" }} 
+                >
                   {texts[index]}
                 </Text>
               </Box>
@@ -106,14 +110,14 @@ function HomeCards() {
           ))}
         </Box>
         <Button
-          w="300px"
-          h="80px"
+          w={{ base: "240px", sm: "300px" }} 
+          h="70px" 
           mb="80px"
           bg="teal"
           data-aos="fade-up"
           _hover={{ backgroundColor: "#38B2AC" }}
           textColor="white"
-          fontSize="20px"
+          fontSize={{ base: "16px", sm: "20px" }} 
         >
           View All Products
         </Button>
