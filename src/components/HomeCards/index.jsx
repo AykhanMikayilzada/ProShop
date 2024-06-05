@@ -1,5 +1,5 @@
 import { Box, Text, Button, Image } from "@chakra-ui/react";
-import React from "react";
+import React, { useEffect } from "react";
 import img1 from "./imgs/product1.svg";
 import img2 from "./imgs/product2.svg";
 import img3 from "./imgs/product3.svg";
@@ -8,8 +8,29 @@ import img5 from "./imgs/product5.svg";
 import img6 from "./imgs/product6.svg";
 import img7 from "./imgs/product7.svg";
 import img8 from "./imgs/product8.svg";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function HomeCards() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      once: true,  
+    });
+  }, []);
+
+  const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+  const texts = [
+    "6 Fresh & Tasty Eggs",
+    "Organic Strawberries",
+    "Fresh Avocados",
+    "Juicy Lemons",
+    "Ripe Bananas",
+    "Crunchy Apples",
+    "Sweet Oranges",
+    "Healthy Blueberries"
+  ];
+
   return (
     <>
       <Box
@@ -23,11 +44,13 @@ function HomeCards() {
         mt="120px"
       >
         <Text
+          data-aos="fade-down"
           textColor="black"
           fontWeight="bold"
-          fontSize="36px"
+          fontSize="40px"
           w="100%"
           textAlign="start"
+          pb="50px"
         >
           Featured Products
         </Text>
@@ -40,7 +63,10 @@ function HomeCards() {
           gap="16px"
           pb="50px"
         >
+          {images.map((img, index) => (
             <Box
+              key={index}
+              data-aos="fade-down"
               className="card"
               w="288px"
               h="200px"
@@ -52,208 +78,39 @@ function HomeCards() {
               alignItems="center"
               pos="relative"
               mt="80px"
+              overflow="visible"
+              _hover={{cursor:"pointer"}}
             >
-              <Image src={img1} pos="absolute" top="-70" />
+              <Image
+                src={img}
+                pos="absolute"
+                top="-70px"
+                left="50%"
+                transform="translateX(-50%)"
+                w="auto"
+                h="140px"
+                transition="transform 0.3s ease"
+                _hover={{ transform: "translateX(-50%) scale(1.1)" }}
+              />
               <Box
                 display="flex"
                 justifyContent="center"
-                mt="154px"
+                mt="100px"
                 alignItems="center"
-                gap="133px"
               >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
+                <Text textColor="black" fontWeight="bold" fontSize="20px">
+                  {texts[index]}
                 </Text>
               </Box>
             </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img2} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img3} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img4} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img5} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img6} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img7} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              className="card"
-              w="288px"
-              h="200px"
-              boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-              bg="white"
-              borderRadius="md"
-              display="flex"
-              flexDir="column"
-              alignItems="center"
-              pos="relative"
-              mt="80px"
-            >
-              <Image src={img8} pos="absolute" top="-70" />
-              <Box
-                display="flex"
-                justifyContent="center"
-                mt="154px"
-                alignItems="center"
-                gap="133px"
-              >
-                <Text textColor="black" fontWeight="bold" fontSize="16px">
-                  6 Fresh & Tasty Eggs
-                </Text>
-              </Box>
-            </Box>
+          ))}
         </Box>
         <Button
           w="300px"
           h="80px"
           mb="80px"
           bg="teal"
+          data-aos="fade-up"
           _hover={{ backgroundColor: "#38B2AC" }}
           textColor="white"
           fontSize="20px"

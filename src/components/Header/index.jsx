@@ -1,38 +1,43 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Logo from "./imgs/proshoplogo.svg";
 import { Box, Image, Text } from "@chakra-ui/react";
 
 function Header() {
   return (
-    <>
-      <Box
-        display="flex"
-        justifyContent="space-evenly"
-        alignItems="center"
-        className="header main"
-      >
-        <Box className="logo">
-          <Image src={Logo} alt="logo" w="200px" />
-        </Box>
-        <Box className="menu" display="flex" gap="40px" pt="33px" pb="33px">
-          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+    <Box
+      display="flex"
+      justifyContent="space-evenly"
+      alignItems="center"
+      className="header main"
+      gap="550px"
+    >
+      <Box className="logo">
+        <Image src={Logo} alt="logo" w="300px" />
+      </Box>  
+      <Box className="menu" display="flex" gap="40px" pt="53px" pb="53px">
+        <Link to="/">
+          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
             Home
           </Text>
-          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+        </Link>
+        <Link to="/about">
+          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
             About
           </Text>
-          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
-            Partners
+        </Link>
+        <Link to="/products">
+          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+            Products
           </Text>
-          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
-            Services
-          </Text>
-          <Text textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
+        </Link>
+        <Link to="/contact">
+          <Text fontSize="18px" textColor="#82828B" _hover={{ textColor: "teal", cursor: "pointer" }}>
             Contact
           </Text>
-        </Box>
+        </Link>
       </Box>
-    </>
+    </Box>
   );
 }
 
