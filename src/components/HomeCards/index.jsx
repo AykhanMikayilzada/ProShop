@@ -114,7 +114,7 @@ function HomeCards() {
           h="70px" 
           mb="80px"
           bg="teal"
-          data-aos="fade-up"
+          data-aos="fade"
           _hover={{ backgroundColor: "#38B2AC" }}
           textColor="white"
           fontSize={{ base: "16px", sm: "20px" }} 
