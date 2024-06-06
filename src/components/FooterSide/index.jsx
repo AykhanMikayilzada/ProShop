@@ -3,8 +3,8 @@ import picture1 from "./imgs/img1.svg";
 import picture2 from "./imgs/img2.svg";
 import picture3 from "./imgs/img3.svg";
 import picture4 from "./imgs/img4.svg";
-import vector from "./imgs/vector.svg";
-import { Box, Button, Image, Text } from "@chakra-ui/react";
+import { Box, Image, Text } from "@chakra-ui/react";
+import logo from "../Header/imgs/proshoplogo.svg"
 
 function FooterSide() {
   return (
@@ -15,7 +15,7 @@ function FooterSide() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        h="730px"
+        h="330px"
         mt={{ base: "300px", md: "551px" }}
       >
         <Box
@@ -66,24 +66,13 @@ function FooterSide() {
 
           <Box
             display="flex"
-            justifyContent="space-between"
+            justifyContent="center"
             alignItems="center"
             gap="50px"
           >
             <Box>
-              <Text fontWeight="bold" fontSize={{ base: "18px", md: "28px" }}>
-                Launch Sale is On
-              </Text>
-              <Text fontSize={{ base: "14px", md: "22px" }} textColor="#82828B">
-                Shop today
-              </Text>
+              <Image src={logo} alt="logo" w="350px" />
             </Box>
-            <Button
-              w={{ base: "60px", md: "100px" }}
-              h={{ base: "45px", md: "89px" }}
-            >
-              <Image src={vector} w="46px" h="26px" />
-            </Button>
           </Box>
         </Box>
 
@@ -102,165 +91,10 @@ function FooterSide() {
             w="100%"
           >
             <Text
-              textColor="#F2F9F8"
-              fontWeight="bold"
-              fontSize={{ base: "24px", md: "34px" }}
-              mt={{ base: "100px", md: "250px" }}
-              textAlign="center"
-            >
-              Dairy Farm Products
-            </Text>
-            <Box display="flex" justifyContent="space-evenly" flexWrap="wrap">
-              <Box
-                display="flex"
-                flexDir="column"
-                alignItems={{ base: "center", md: "flex-start" }}
-              >
-                <Text
-                  textColor="#78BAB5"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Links
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Contact
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Affiliation
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Terms of Use
-                </Text>
-              </Box>
-              <Box
-                display="flex"
-                flexDir="column"
-                alignItems={{ base: "center", md: "flex-start" }}
-              >
-                <Text
-                  textColor="#78BAB5"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Company
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Blog
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Shop
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  About
-                </Text>
-              </Box>
-              <Box
-                display="flex"
-                flexDir="column"
-                alignItems={{ base: "center", md: "flex-start" }}
-              >
-                <Text
-                  textColor="#78BAB5"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Categories
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Eggs
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Drinks
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Eatables
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Meat & Cheese
-                </Text>
-              </Box>
-              <Box
-                display="flex"
-                flexDir="column"
-                alignItems={{ base: "center", md: "flex-start" }}
-              >
-                <Text
-                  textColor="#78BAB5"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Terms
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Privacy Policy
-                </Text>
-                <Text
-                  textColor="#F2F9F8"
-                  fontSize={{ base: "14px", md: "18px" }}
-                  _hover={{ cursor: "pointer" }}
-                >
-                  Terms & Conditions
-                </Text>
-              </Box>
-            </Box>
-            <Box
-              bg="white"
-              maxW="1200px"
-              w="100%"
-              h="2px"
-              borderRadius="12px"
-              m="auto"
-              opacity="50%"
-            ></Box>
-            <Text
               textAlign="center"
               textColor="#78BAB5"
               fontSize={{ base: "12px", md: "14px" }}
+              mt={{ base: "100px", md:"230px" }}
             >
               © All Rights Reserved Proshop MMC Privacy Policy
             </Text>

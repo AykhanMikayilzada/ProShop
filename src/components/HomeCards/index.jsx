@@ -1,5 +1,6 @@
 import { Box, Text, Button, Image } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 import img1 from "./imgs/product1.svg";
 import img2 from "./imgs/product2.svg";
 import img3 from "./imgs/product3.svg";
@@ -12,11 +13,24 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 function HomeCards() {
+  const [isMobile, setIsMobile] = useState(false);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
       once: true,
     });
+
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768); // Assuming mobile breakpoint is 768px
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const images = [img1, img2, img3, img4, img5, img6, img7, img8];
@@ -66,7 +80,7 @@ function HomeCards() {
           {images.map((img, index) => (
             <Box
               key={index}
-              data-aos="fade-down"
+              data-aos={!isMobile ? "fade-down" : undefined}
               className="card"
               w={{ base: "240px", sm: "288px" }}
               h="200px"
@@ -77,7 +91,7 @@ function HomeCards() {
               flexDir="column"
               alignItems="center"
               pos="relative"
-              mt={{ base: "100px", sm: "70px" }}
+              mt={!isMobile ? "100px" : "70px"}
               overflow="visible"
               _hover={{ cursor: "pointer" }}
             >
@@ -101,7 +115,7 @@ function HomeCards() {
                 <Text
                   textColor="black"
                   fontWeight="bold"
-                  fontSize={{ base: "16px", sm: "18px" }} 
+                  fontSize={{ base: "16px", sm: "18px" }}
                 >
                   {texts[index]}
                 </Text>
@@ -110,16 +124,16 @@ function HomeCards() {
           ))}
         </Box>
         <Button
-          w={{ base: "240px", sm: "300px" }} 
-          h="70px" 
+          w={{ base: "240px", sm: "300px" }}
+          h="70px"
           mb="80px"
           bg="teal"
-          data-aos="fade"
+          data-aos={!isMobile ? "fade" : undefined}
           _hover={{ backgroundColor: "#38B2AC" }}
           textColor="white"
-          fontSize={{ base: "16px", sm: "20px" }} 
+          fontSize={{ base: "16px", sm: "20px" }}
         >
-          View All Products
+          <Link to="/products/all">View All Products</Link>
         </Button>
       </Box>
     </>

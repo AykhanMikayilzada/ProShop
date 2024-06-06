@@ -1,6 +1,7 @@
 import { Box, Text, Image, Button } from "@chakra-ui/react";
 import React from "react";
 import comma from "./imgs/comma.svg";
+import { Link } from "react-router-dom";
 import signature from "./imgs/signature.svg";
 import pictures from "./imgs/pictures.svg";
 
@@ -23,7 +24,8 @@ function HomeWhoWeAre() {
           flexDir="column"
           gap="20px"
           alignItems={{ base: "center", lg: "flex-start" }}
-          textAlign={{ base: "center", lg: "left" }} // Metni ortalamak için
+          textAlign={{ base: "center", lg: "left" }}
+          data-aos="fade-right"
         >
           <Text fontSize="32px" fontWeight="bold">
             Who we are?
@@ -43,7 +45,7 @@ function HomeWhoWeAre() {
             textColor="white"
             _hover={{ backgroundColor: "#38B2AC" }}
           >
-            Readmore
+            <Link to="/about">Readmore</Link>
           </Button>
         </Box>
         <Box
@@ -52,7 +54,8 @@ function HomeWhoWeAre() {
           flexDir="column"
           gap="10px"
           alignItems={{ base: "center", lg: "flex-start" }}
-          textAlign={{ base: "center", lg: "left" }} // Metni ortalamak için
+          textAlign={{ base: "center", lg: "left" }}
+          data-aos="fade-left"
         >
           <Image src={comma} alt="comma" w="40px" />
           <Box className="divider" w="100px" h="3px" bg="black"></Box>
@@ -70,7 +73,7 @@ function HomeWhoWeAre() {
           <Image src={signature} w="70px" />
         </Box>
       </Box>
-      <Image src={pictures} m="auto" mb="48px" />
+      <Image src={pictures} m="auto" mb="48px" data-aos="fade" />
     </>
   );
 }

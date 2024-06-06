@@ -1,3 +1,4 @@
+// Header.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -11,6 +12,10 @@ import {
   DrawerContent,
   DrawerHeader,
   DrawerBody,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import Logo from "./imgs/proshoplogo.svg";
@@ -53,15 +58,23 @@ function Header() {
             About
           </Text>
         </Link>
-        <Link to="/products">
-          <Text
-            fontSize="18px"
-            textColor="#82828B"
-            _hover={{ textColor: "teal", cursor: "pointer" }}
-          >
-            Products
-          </Text>
-        </Link>
+        <Menu isLazy>
+          <MenuButton>
+            <Text
+              fontSize="18px"
+              textColor="#82828B"
+              _hover={{ textColor: "teal", cursor: "pointer" }}
+            >
+              Products
+            </Text>
+          </MenuButton>
+          <MenuList>
+            <MenuItem>
+              <Link to="/products/all">All Products</Link>
+            </MenuItem>
+            {/* Diğer ürün kategorileri için MenuItem'ları ekleyin */}
+          </MenuList>
+        </Menu>
         <Link to="/contact">
           <Text
             fontSize="18px"
@@ -103,15 +116,49 @@ function Header() {
                 About
               </Text>
             </Link>
-            <Link to="/products">
-              <Text
-                fontSize="18px"
-                textColor="#82828B"
-                _hover={{ textColor: "teal", cursor: "pointer" }}
-              >
-                Products
-              </Text>
-            </Link>
+            <Menu isLazy>
+              <MenuButton>
+                <Text
+                  fontSize="18px"
+                  textColor="#82828B"
+                  _hover={{ textColor: "teal", cursor: "pointer" }}
+                >
+                  Products
+                </Text>
+              </MenuButton>
+              <MenuList>
+                <MenuItem>
+                  <Link to="/products/all">All Products</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/auto-branding">Autobranding</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/bilboards">Bilboards</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/events">Events</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/exibition-stands">Exibition Stands</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/indoor">Indoor</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/outdoor">Outdoor</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/polgraphy">Polygraph</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/promo">Promo</Link>
+                </MenuItem>
+                <MenuItem>
+                  <Link to="/products/shop-stands">Shop Stands</Link>
+                </MenuItem>
+              </MenuList>
+            </Menu>
             <Link to="/contact">
               <Text
                 fontSize="18px"
