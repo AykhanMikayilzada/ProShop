@@ -72,7 +72,33 @@ function Header() {
             <MenuItem>
               <Link to="/products/all">All Products</Link>
             </MenuItem>
-            {/* Diğer ürün kategorileri için MenuItem'ları ekleyin */}
+            <MenuItem>
+              <Link to="/products/auto-branding">Auto Branding</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/bilboards">Bilboards</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/events">Events</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/exibition-stands">Exibition Stands</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/indoor">Indoor</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/outdoor">Outdoor</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/polgraphy">Polgraphy</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/promo">Promo</Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/products/shop-stands">Shop Stands</Link>
+            </MenuItem>
           </MenuList>
         </Menu>
         <Link to="/contact">
