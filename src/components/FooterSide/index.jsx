@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import picture1 from "./imgs/img1.svg";
 import picture2 from "./imgs/img2.svg";
 import picture3 from "./imgs/img3.svg";
 import picture4 from "./imgs/img4.svg";
 import { Box, Image, Text } from "@chakra-ui/react";
-import logo from "../Header/imgs/proshoplogo.svg"
+import logo from "../Header/imgs/proshoplogo.svg";
+import "aos/dist/aos.css";
+import Aos from "aos";
 
 function FooterSide() {
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
+
   return (
     <>
       <Box
@@ -30,6 +36,7 @@ function FooterSide() {
           display="flex"
           justifyContent="center"
           className="whiteFooterBox"
+          data-aos="fade-up" 
         >
           <Image
             src={picture1}
