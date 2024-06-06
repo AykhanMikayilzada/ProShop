@@ -29,12 +29,12 @@ function Header() {
       px="20px"
       py="15px"
       boxSizing="border-box"
-      flexWrap={{ base: "wrap", sm: "nowrap" }}
+      flexWrap={{ base: "wrap", md: "nowrap" }}
     >
-      <Box className="logo" flexShrink="0" mr={{ base: "20px", sm: "40px" }}>
-        <Image src={Logo} alt="logo" w={{ base: "200px", sm: "300px" }} />
+      <Box className="logo" flexShrink="0" mr={{ base: "20px", md: "40px" }}>
+        <Image src={Logo} alt="logo" w={{ base: "200px", md: "300px" }} />
       </Box>
-      <Box className="menu" display={{ base: "none", sm: "flex" }} gap="40px">
+      <Box className="menu" display={{ base: "none", md: "flex" }} gap="40px">
         <Link to="/">
           <Text
             fontSize="18px"
@@ -72,7 +72,7 @@ function Header() {
           </Text>
         </Link>
       </Box>
-      <Box display={{ base: "flex", sm: "none" }}>
+      <Box display={{ base: "flex", md: "none" }}>
         <IconButton
           aria-label="Open Menu"
           icon={<HamburgerIcon />}

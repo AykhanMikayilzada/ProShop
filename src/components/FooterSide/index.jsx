@@ -15,48 +15,78 @@ function FooterSide() {
         display="flex"
         justifyContent="center"
         alignItems="center"
-        h="730px"  // Yeşil kısmın yüksekliği
-        mt="551px"
+        h="730px"
+        mt={{ base: "300px", md: "551px" }}
       >
         <Box
           pos="absolute"
-          top="-231px"
+          top={{ base: "-191px", md: "-231px" }}
           bg="#F2F9F8"
           boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
           borderRadius="65px"
           maxW="1200px"
-          h="461px"
-          width="100%"
+          width={{ base: "calc(100% - 40px)", md: "calc(100% - 80px)" }}
+          h={{ base: "300px", md: "461px" }}
           display="flex"
           justifyContent="center"
           className="whiteFooterBox"
         >
-          <Image src={picture1} pos="absolute" top="0" left="0" />
-          <Image src={picture2} pos="absolute" top="0" />
-          <Image src={picture3} pos="absolute" top="0" right="55px" />
-          <Image src={picture4} pos="absolute" bottom="0" right="226px" />
+          <Image
+            src={picture1}
+            pos="absolute"
+            top={{ base: "-10px", md: "auto" }}
+            left="0"
+            w={{ base: "80px", md: "auto" }}
+            h={{ base: "80px", md: "auto" }}
+          />
+          <Image
+            src={picture2}
+            pos="absolute"
+            top={{ base: "-30px", md: "auto" }}
+            right={{ base: "150px", md: "auto" }}
+            w={{ base: "80px", md: "auto" }}
+            h={{ base: "80px", md: "auto" }}
+          />
+          <Image
+            src={picture3}
+            pos="absolute"
+            top={{ base: "-15px", md: "auto" }}
+            right={{ base: "40px", md: "55px" }}
+            w={{ base: "80px", md: "auto" }}
+            h={{ base: "80px", md: "auto" }}
+          />
+          <Image
+            src={picture4}
+            pos="absolute"
+            bottom={{ base: "-23px", md: "0" }}
+            right={{ base: "220px", md: "236px" }}
+            w={{ base: "80px", md: "auto" }}
+            h={{ base: "80px", md: "auto" }}
+          />
 
-          <Box>
-            <Box pos="absolute" left="109px" bottom="73px">
-              <Text fontWeight="bold" fontSize="34px">
+          <Box
+            display="flex"
+            justifyContent="space-between"
+            alignItems="center"
+            gap="50px"
+          >
+            <Box>
+              <Text fontWeight="bold" fontSize={{ base: "18px", md: "28px" }}>
                 Launch Sale is On
               </Text>
-              <Text fontSize="26px" textColor="#82828B">
+              <Text fontSize={{ base: "14px", md: "22px" }} textColor="#82828B">
                 Shop today
               </Text>
             </Box>
-
             <Button
-              w="100px"
-              h="89px"
-              pos="absolute"
-              bottom="85px"
-              right="55px"
+              w={{ base: "60px", md: "100px" }}
+              h={{ base: "45px", md: "89px" }}
             >
               <Image src={vector} w="46px" h="26px" />
             </Button>
           </Box>
         </Box>
+
         <Box
           className="footerBox"
           display="flex"
@@ -81,59 +111,139 @@ function FooterSide() {
               Dairy Farm Products
             </Text>
             <Box display="flex" justifyContent="space-evenly" flexWrap="wrap">
-              <Box display="flex" flexDir="column" alignItems={{ base: "center", md: "flex-start" }}>
-                <Text textColor="#78BAB5" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+              <Box
+                display="flex"
+                flexDir="column"
+                alignItems={{ base: "center", md: "flex-start" }}
+              >
+                <Text
+                  textColor="#78BAB5"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Links
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Contact
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Affiliation
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Terms of Use
                 </Text>
               </Box>
-              <Box display="flex" flexDir="column" alignItems={{ base: "center", md: "flex-start" }}>
-                <Text textColor="#78BAB5" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+              <Box
+                display="flex"
+                flexDir="column"
+                alignItems={{ base: "center", md: "flex-start" }}
+              >
+                <Text
+                  textColor="#78BAB5"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Company
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Blog
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Shop
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   About
                 </Text>
               </Box>
-              <Box display="flex" flexDir="column" alignItems={{ base: "center", md: "flex-start" }}>
-                <Text textColor="#78BAB5" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+              <Box
+                display="flex"
+                flexDir="column"
+                alignItems={{ base: "center", md: "flex-start" }}
+              >
+                <Text
+                  textColor="#78BAB5"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Categories
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Eggs
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Drinks
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Eatables
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Meat & Cheese
                 </Text>
               </Box>
-              <Box display="flex" flexDir="column" alignItems={{ base: "center", md: "flex-start" }}>
-                <Text textColor="#78BAB5" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+              <Box
+                display="flex"
+                flexDir="column"
+                alignItems={{ base: "center", md: "flex-start" }}
+              >
+                <Text
+                  textColor="#78BAB5"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Terms
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Privacy Policy
                 </Text>
-                <Text textColor="#F2F9F8" fontSize={{ base: "14px", md: "18px" }} _hover={{ cursor: "pointer" }}>
+                <Text
+                  textColor="#F2F9F8"
+                  fontSize={{ base: "14px", md: "18px" }}
+                  _hover={{ cursor: "pointer" }}
+                >
                   Terms & Conditions
                 </Text>
               </Box>
