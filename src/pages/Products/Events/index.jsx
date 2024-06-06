@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Header from "../../../components/Header";
+import FooterSide from "../../../components/FooterSide";
 
 function Events() {
   return (
-    <div>Events</div>
-  )
+    <>
+      <Header />
+      <div>Events</div>
+      <FooterSide />
+    </>
+  );
 }
 
-export default Events
+export default Events;

@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from '../../../components/Header'
+import FooterSide from '../../../components/FooterSide'
 
 function AutoBranding() {
   return (
-    <div>AutoBranding</div>
+    <>
+      <Header />
+      <div>Auto Branding</div>
+      <FooterSide />
+    </>
   )
 }
 

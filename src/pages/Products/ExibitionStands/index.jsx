@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Header from "../../../components/Header";
+import FooterSide from "../../../components/FooterSide";
 
 function ExibitionStands() {
   return (
-    <div>ExibitionStands</div>
-  )
+    <>
+      <Header />
+      <div>ExibitionStands</div>
+      <FooterSide />
+    </>
+  );
 }
 
-export default ExibitionStands
+export default ExibitionStands;

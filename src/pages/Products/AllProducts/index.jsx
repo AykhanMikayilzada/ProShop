@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from '../../../components/Header'
+import FooterSide from '../../../components/FooterSide'
 
 function AllProducts() {
   return (
-    <div>AllProducts</div>
+    <>
+        <Header />
+        <div>All Products</div>
+        <FooterSide />
+    </>
   )
 }
 

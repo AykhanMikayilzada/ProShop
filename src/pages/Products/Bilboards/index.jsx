@@ -1,8 +1,14 @@
 import React from 'react'
+import Header from '../../../components/Header'
+import FooterSide from '../../../components/FooterSide'
 
 function Bilboards() {
   return (
-    <div>Bilboards</div>
+    <>
+        <Header />
+        <div>Bilboards</div>
+        <FooterSide />
+    </>
   )
 }
 

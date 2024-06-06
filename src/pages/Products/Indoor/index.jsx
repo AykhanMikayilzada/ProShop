@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Header from "../../../components/Header";
+import FooterSide from "../../../components/FooterSide";
 
 function Indoor() {
   return (
-    <div>Indoor</div>
-  )
+    <>
+      <Header />
+      <div>Indoor</div>
+      <FooterSide />
+    </>
+  );
 }
 
-export default Indoor
+export default Indoor;

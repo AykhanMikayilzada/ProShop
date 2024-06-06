@@ -1,9 +1,15 @@
-import React from 'react'
+import React from "react";
+import Header from "../../../components/Header";
+import FooterSide from "../../../components/FooterSide";
 
 function Polgraphy() {
   return (
-    <div>Polgraphy</div>
-  )
+    <>
+      <Header />
+      <div>Polgraphy</div>
+      <FooterSide />
+    </>
+  );
 }
 
-export default Polgraphy
+export default Polgraphy;
