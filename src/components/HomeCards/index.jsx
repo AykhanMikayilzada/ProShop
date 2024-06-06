@@ -50,7 +50,7 @@ function HomeCards() {
           fontSize={{ base: "30px", sm: "40px" }}
           w="100%"
           textAlign="center"
-          pb="50px"
+          pb="30px"
         >
           Featured Products
         </Text>
@@ -77,7 +77,7 @@ function HomeCards() {
               flexDir="column"
               alignItems="center"
               pos="relative"
-              mt={{ base: "50px", sm: "80px" }}
+              mt={{ base: "100px", sm: "70px" }}
               overflow="visible"
               _hover={{ cursor: "pointer" }}
             >
