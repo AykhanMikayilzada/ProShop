@@ -3,23 +3,16 @@ import { Box, Text, Button, Image } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
 
 function AllProducts() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768); // Assuming mobile breakpoint is 768px
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    handleResize(); // Initial check
+    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -27,41 +20,33 @@ function AllProducts() {
     };
   }, []);
 
-  const imageUrl = "https://retailminded.com/wp-content/uploads/2016/03/EN_GreenOlive-1.jpg";
+  const imageUrl =
+    'https://retailminded.com/wp-content/uploads/2016/03/EN_GreenOlive-1.jpg';
   const texts = [
-    '6 Fresh & Tasty Eggs',
-    'Organic Strawberries',
     'Fresh Avocados',
-    'Juicy Lemons',
-    'Ripe Bananas',
-    'Crunchy Apples',
-    'Sweet Oranges',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
-    'Healthy Blueberries',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
+    'Fresh Avocados',
   ];
 
   return (
@@ -78,7 +63,6 @@ function AllProducts() {
         mt="120px"
       >
         <Text
-          data-aos="fade-down"
           textColor="black"
           fontWeight="bold"
           fontSize={{ base: '30px', sm: '40px' }}
@@ -100,7 +84,6 @@ function AllProducts() {
           {texts.map((text, index) => (
             <Box
               key={index}
-              data-aos={!isMobile ? 'fade-down' : undefined}
               className="card"
               w={{ base: '240px', sm: '288px' }}
               h="200px"
