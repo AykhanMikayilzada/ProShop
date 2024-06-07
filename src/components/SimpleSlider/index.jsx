@@ -10,7 +10,7 @@ const SimpleSlider = () => {
     position: "relative",
     width: "100%",
     height: "600px",
-    background: "linear-gradient(to right, #008475, #F46036)",
+    background: "linear-gradient(to right, #008080,  #C0C0C0)",
     borderRadius: "8px",
     display: "flex",
     justifyContent: "space-evenly",
