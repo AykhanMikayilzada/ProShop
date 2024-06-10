@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Box,
   Image,
@@ -26,9 +26,12 @@ import az from "./imgs/az.png";
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t, i18n } = useTranslation();
+  const location = useLocation(); 
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
+    const newPath = `/${lng}${location.pathname}`; 
+    window.history.replaceState(null, null, newPath);
   };
 
   return (
@@ -46,7 +49,7 @@ function Header() {
     >
       <Box className="logo" flexShrink="0" mr={{ base: "20px", md: "40px" }}>
         <Link to="/">
-        <Image src={Logo} alt="logo" w={{ base: "200px", md: "300px" }} />
+          <Image src={Logo} alt="logo" w={{ base: "200px", md: "300px" }} />
         </Link>
       </Box>
       <Box
@@ -54,9 +57,9 @@ function Header() {
         alignItems="center"
         gap="10px"
         order={{ base: "2", md: "1" }}
-        w={{base: "100%", md: "fit-content"}}
-        justifyContent={{base:"center" , md:""}}
-        mt={{base:"20px", md:"0"}}
+        w={{ base: "100%", md: "fit-content" }}
+        justifyContent={{ base: "center", md: "" }}
+        mt={{ base: "20px", md: "0" }}
       >
         <Button variant="ghost" onClick={() => changeLanguage("az")}>
           <Image src={az} alt="Azerbaijan" w="35px" />
@@ -216,7 +219,7 @@ function Header() {
                 </MenuItem>
                 <MenuItem>
                   <Link to="/products/shop-stands">{t("shopStands")}</Link>
-                  </MenuItem>
+                </MenuItem>
               </MenuList>
             </Menu>
             <Link to="/contact">
