@@ -47,7 +47,27 @@ function Header() {
       <Box className="logo" flexShrink="0" mr={{ base: "20px", md: "40px" }}>
         <Image src={Logo} alt="logo" w={{ base: "200px", md: "300px" }} />
       </Box>
-      <Box className="menu" display={{ base: "none", md: "flex" }} gap="40px">
+      <Box
+        display="flex"
+        alignItems="center"
+        gap="10px"
+        order={{ base: "2", md: "1" }}
+        w={{base: "100%", md: "fit-content"}}
+        justifyContent={{base:"center" , md:""}}
+        mt={{base:"20px", md:"0"}}
+      >
+        <Button variant="ghost" onClick={() => changeLanguage("az")}>
+          <Image src={az} alt="Azerbaijan" w="35px" />
+        </Button>
+        <Button variant="ghost" onClick={() => changeLanguage("en")}>
+          <Image src={en} alt="English" w="35px" />
+        </Button>
+      </Box>
+      <Box
+        className="menu"
+        display={{ base: "none", md: "flex" }}
+        gap={{ base: "20px", md: "40px" }}
+      >
         <Link to="/">
           <Text
             fontSize="18px"
@@ -120,14 +140,6 @@ function Header() {
             {t("contact")}
           </Text>
         </Link>
-      </Box>
-      <Box display="flex" alignItems="center">
-        <Button variant="ghost" onClick={() => changeLanguage("az")}>
-          <Image src={az} alt="Azerbaijan" w="35px" />
-        </Button>
-        <Button variant="ghost" onClick={() => changeLanguage("en")}>
-          <Image src={en} alt="English" w="35px" />
-        </Button>
       </Box>
       <Box display={{ base: "flex", md: "none" }}>
         <IconButton
@@ -202,7 +214,7 @@ function Header() {
                 </MenuItem>
                 <MenuItem>
                   <Link to="/products/shop-stands">{t("shopStands")}</Link>
-                </MenuItem>
+                  </MenuItem>
               </MenuList>
             </Menu>
             <Link to="/contact">
