@@ -1,4 +1,3 @@
-// Header.jsx
 import React from "react";
 import { Link } from "react-router-dom";
 import {
@@ -16,12 +15,21 @@ import {
   MenuButton,
   MenuList,
   MenuItem,
+  Button,
 } from "@chakra-ui/react";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { useTranslation } from "react-i18next";
 import Logo from "./imgs/proshoplogo.svg";
+import en from "./imgs/en.png";
+import az from "./imgs/az.png";
 
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { t, i18n } = useTranslation();
+
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <Box
@@ -46,7 +54,7 @@ function Header() {
             textColor="#82828B"
             _hover={{ textColor: "teal", cursor: "pointer" }}
           >
-            Home
+            {t("home")}
           </Text>
         </Link>
         <Link to="/about">
@@ -55,7 +63,7 @@ function Header() {
             textColor="#82828B"
             _hover={{ textColor: "teal", cursor: "pointer" }}
           >
-            About
+            {t("about")}
           </Text>
         </Link>
         <Menu isLazy>
@@ -65,39 +73,41 @@ function Header() {
               textColor="#82828B"
               _hover={{ textColor: "teal", cursor: "pointer" }}
             >
-              Products
+              {t("products")}
             </Text>
           </MenuButton>
           <MenuList>
             <MenuItem>
-              <Link to="/products/all">All Products</Link>
+              <Link to="/products/all">{t("allProducts")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/auto-branding">Auto Branding</Link>
+              <Link to="/products/auto-branding">{t("autoBranding")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/bilboards">Bilboards</Link>
+              <Link to="/products/bilboards">{t("bilboards")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/events">Events</Link>
+              <Link to="/products/events">{t("events")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/exibition-stands">Exibition Stands</Link>
+              <Link to="/products/exibition-stands">
+                {t("exibitionStands")}
+              </Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/indoor">Indoor</Link>
+              <Link to="/products/indoor">{t("indoor")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/outdoor">Outdoor</Link>
+              <Link to="/products/outdoor">{t("outdoor")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/polgraphy">Polgraphy</Link>
+              <Link to="/products/polgraphy">{t("polgraphy")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/promo">Promo</Link>
+              <Link to="/products/promo">{t("promo")}</Link>
             </MenuItem>
             <MenuItem>
-              <Link to="/products/shop-stands">Shop Stands</Link>
+              <Link to="/products/shop-stands">{t("shopStands")}</Link>
             </MenuItem>
           </MenuList>
         </Menu>
@@ -107,9 +117,17 @@ function Header() {
             textColor="#82828B"
             _hover={{ textColor: "teal", cursor: "pointer" }}
           >
-            Contact
+            {t("contact")}
           </Text>
         </Link>
+      </Box>
+      <Box display="flex" alignItems="center">
+        <Button variant="ghost" onClick={() => changeLanguage("az")}>
+          <Image src={az} alt="Azerbaijan" w="35px" />
+        </Button>
+        <Button variant="ghost" onClick={() => changeLanguage("en")}>
+          <Image src={en} alt="English" w="35px" />
+        </Button>
       </Box>
       <Box display={{ base: "flex", md: "none" }}>
         <IconButton
@@ -122,7 +140,7 @@ function Header() {
       <Drawer placement="right" onClose={onClose} isOpen={isOpen}>
         <DrawerOverlay />
         <DrawerContent>
-          <DrawerHeader borderBottomWidth="1px">Menu</DrawerHeader>
+          <DrawerHeader borderBottomWidth="1px">{t("menu")}</DrawerHeader>
           <DrawerBody>
             <Link to="/">
               <Text
@@ -130,7 +148,7 @@ function Header() {
                 textColor="#82828B"
                 _hover={{ textColor: "teal", cursor: "pointer" }}
               >
-                Home
+                {t("home")}
               </Text>
             </Link>
             <Link to="/about">
@@ -139,7 +157,7 @@ function Header() {
                 textColor="#82828B"
                 _hover={{ textColor: "teal", cursor: "pointer" }}
               >
-                About
+                {t("about")}
               </Text>
             </Link>
             <Menu isLazy>
@@ -149,39 +167,41 @@ function Header() {
                   textColor="#82828B"
                   _hover={{ textColor: "teal", cursor: "pointer" }}
                 >
-                  Products
+                  {t("products")}
                 </Text>
               </MenuButton>
               <MenuList>
                 <MenuItem>
-                  <Link to="/products/all">All Products</Link>
+                  <Link to="/products/all">{t("allProducts")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/auto-branding">Autobranding</Link>
+                  <Link to="/products/auto-branding">{t("autoBranding")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/bilboards">Bilboards</Link>
+                  <Link to="/products/bilboards">{t("bilboards")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/events">Events</Link>
+                  <Link to="/products/events">{t("events")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/exibition-stands">Exibition Stands</Link>
+                  <Link to="/products/exibition-stands">
+                    {t("exibitionStands")}
+                  </Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/indoor">Indoor</Link>
+                  <Link to="/products/indoor">{t("indoor")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/outdoor">Outdoor</Link>
+                  <Link to="/products/outdoor">{t("outdoor")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/polgraphy">Polygraph</Link>
+                  <Link to="/products/polgraphy">{t("polgraphy")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/promo">Promo</Link>
+                  <Link to="/products/promo">{t("promo")}</Link>
                 </MenuItem>
                 <MenuItem>
-                  <Link to="/products/shop-stands">Shop Stands</Link>
+                  <Link to="/products/shop-stands">{t("shopStands")}</Link>
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -191,7 +211,7 @@ function Header() {
                 textColor="#82828B"
                 _hover={{ textColor: "teal", cursor: "pointer" }}
               >
-                Contact
+                {t("contact")}
               </Text>
             </Link>
           </DrawerBody>

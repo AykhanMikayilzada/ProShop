@@ -13,8 +13,8 @@ import {
   Textarea,
   Button,
   useToast,
-  Flex, // Flex bileşenini import et
-  Icon, // Icon bileşenini import et
+  Flex,
+  Icon,
 } from "@chakra-ui/react";
 import {
   FaEnvelope,
@@ -22,6 +22,7 @@ import {
   FaLinkedin,
   FaPhoneAlt,
 } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function Contact() {
   const [firstName, setFirstName] = useState("");
@@ -32,6 +33,7 @@ function Contact() {
   const [isFormValid, setIsFormValid] = useState(false);
   const toast = useToast();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const isFirstNameError = firstName === "";
   const isLastNameError = lastName === "";
@@ -58,9 +60,8 @@ function Contact() {
     if (isFormValid) {
       console.log("Form submitted:", { firstName, lastName, email, message });
       toast({
-        title: "Form submitted successfully.",
-        description:
-          "You have successfully contacted us. We will get back to you via email shortly.",
+        title: t("formSubmitted"),
+        description: t("formSubmittedDescription"),
         status: "success",
         duration: 5000,
         isClosable: true,
@@ -96,7 +97,7 @@ function Contact() {
           fontSize="36px"
           mt="50px"
         >
-          Contact Us Form
+          {t("contactUsForm")}
         </Text>
         <Box as="form" mt="20px" onSubmit={handleSubmit}>
           <FormControl
@@ -104,14 +105,14 @@ function Contact() {
             isRequired
             mb="20px"
           >
-            <FormLabel>First Name</FormLabel>
+            <FormLabel>{t("firstName")}</FormLabel>
             <Input
-              placeholder="First name"
+              placeholder={t("firstName")}
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
             />
             {isSubmitted && isFirstNameError && (
-              <FormErrorMessage>First name is required.</FormErrorMessage>
+              <FormErrorMessage>{t("firstNameError")}</FormErrorMessage>
             )}
           </FormControl>
 
@@ -120,14 +121,14 @@ function Contact() {
             isRequired
             mb="20px"
           >
-            <FormLabel>Last Name</FormLabel>
+            <FormLabel>{t("lastName")}</FormLabel>
             <Input
-              placeholder="Last name"
+              placeholder={t("lastName")}
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
             {isSubmitted && isLastNameError && (
-              <FormErrorMessage>Last name is required.</FormErrorMessage>
+              <FormErrorMessage>{t("lastNameError")}</FormErrorMessage>
             )}
           </FormControl>
 
@@ -136,21 +137,21 @@ function Contact() {
             isRequired
             mb="20px"
           >
-            <FormLabel>Email</FormLabel>
+            <FormLabel>{t("email")}</FormLabel>
             <Input
               type="email"
-              placeholder="Email"
+              placeholder={t("email")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
             {isSubmitted && !isEmailError ? (
               <FormHelperText>
-                Enter the email you'd like to receive the newsletter on.
+                {t("emailHelperText")}
               </FormHelperText>
             ) : (
               isSubmitted &&
               isEmailError && (
-                <FormErrorMessage>Email is required.</FormErrorMessage>
+                <FormErrorMessage>{t("emailError")}</FormErrorMessage>
               )
             )}
           </FormControl>
@@ -160,23 +161,23 @@ function Contact() {
             isRequired
             mb="20px"
           >
-            <FormLabel>Message</FormLabel>
+            <FormLabel>{t("message")}</FormLabel>
             <Textarea
-              placeholder="Your message"
+              placeholder={t("message")}
               value={message}
               onChange={(e) => setMessage(e.target.value)}
             />
             {isSubmitted && isMessageError && (
-              <FormErrorMessage>Message is required.</FormErrorMessage>
+              <FormErrorMessage>{t("messageError")}</FormErrorMessage>
             )}
           </FormControl>
 
           <Button colorScheme="teal" type="submit" isDisabled={!isFormValid}>
-            Submit
+            {t("submit")}
           </Button>
 
           <Text mt="20px" fontWeight="bold">
-            Contact Informations:
+            {t("contactInformations")}
           </Text>
           <Flex alignItems="center" mb="10px">
             <Icon as={FaEnvelope} mr="5px" />
