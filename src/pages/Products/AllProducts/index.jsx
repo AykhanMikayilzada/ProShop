@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Button, Image } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
+import { Box, Text, Image } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
 
 function AllProducts() {
+  const { t } = useTranslation(); 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -70,7 +71,7 @@ function AllProducts() {
           textAlign="center"
           pb="30px"
         >
-          All Products
+          {t('allProducts')} 
         </Text>
         <Box
           className="mainCard"

@@ -45,7 +45,9 @@ function Header() {
       flexWrap={{ base: "wrap", md: "nowrap" }}
     >
       <Box className="logo" flexShrink="0" mr={{ base: "20px", md: "40px" }}>
+        <Link to="/">
         <Image src={Logo} alt="logo" w={{ base: "200px", md: "300px" }} />
+        </Link>
       </Box>
       <Box
         display="flex"
