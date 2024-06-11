@@ -34,71 +34,48 @@ function PartnerLogos() {
     autoplay: true,
     autoplaySpeed: 2000,
     cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          infinite: true,
+          dots: false
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1
+        }
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1
+        }
+      }
+    ]
   };
 
   return (
-    <Box maxW="1200px" m="auto" mb="48px">
+    <Box maxW="1200px" m="auto" mb="48px" overflow="hidden">
       <Slider {...settings}>
-        <Box>
-          <Image src={logo1} alt="Partner 1" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo2} alt="Partner 2" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo3} alt="Partner 3" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo4} alt="Partner 4" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo5} alt="Partner 5" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo6} alt="Partner 6" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo7} alt="Partner 7" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo8} alt="Partner 8" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo9} alt="Partner 9" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo10} alt="Partner 10" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo11} alt="Partner 11" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo12} alt="Partner 12" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo13} alt="Partner 13" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo14} alt="Partner 14" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo15} alt="Partner 15" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo16} alt="Partner 16" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo17} alt="Partner 17" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo18} alt="Partner 18" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo19} alt="Partner 19" w="100px"/>
-        </Box>
-        <Box>
-          <Image src={logo20} alt="Partner 20" w="100px"/>
-        </Box>
+        {[logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10, logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20].map((logo, index) => (
+          <Box 
+            key={index} 
+            p={{ base: "10px", md: "15px" }} 
+            display="flex" 
+            justifyContent="center" 
+            alignItems="center" 
+            height="150px" 
+            >
+            <Image src={logo} alt={`Partner ${index + 1}`} m="auto" w={{ base: "120px", md: "150px" }} />
+          </Box>
+        ))}
       </Slider>
     </Box>
   );
