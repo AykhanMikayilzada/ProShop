@@ -1,9 +1,9 @@
-import { Box, Text, Image, Button } from "@chakra-ui/react";
 import React from "react";
-import comma from "./imgs/comma.svg";
+import { Box, Text, Image, Button } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import PartnerLogos from "../PartnerLogos"
+import comma from "./imgs/comma.svg";
 import signature from "./imgs/signature.svg";
-import pictures from "./imgs/pictures.svg";
 
 function HomeWhoWeAre() {
   return (
@@ -73,7 +73,7 @@ function HomeWhoWeAre() {
           <Image src={signature} w="70px" />
         </Box>
       </Box>
-      <Image src={pictures} m="auto" mb="48px" data-aos="fade" />
+      <PartnerLogos /> 
     </>
   );
 }
