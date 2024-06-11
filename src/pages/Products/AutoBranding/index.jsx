@@ -4,6 +4,18 @@ import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
 
+import car1 from './imgs/car1.png';
+import car2 from './imgs/car2.png';
+import car3 from './imgs/car3.png';
+import car4 from './imgs/car4.png';
+import car5 from './imgs/car5.png';
+import car6 from './imgs/car6.png';
+import car7 from './imgs/car7.png';
+import car8 from './imgs/car8.png';
+import car9 from './imgs/car9.png';
+import car10 from './imgs/car10.png';
+import car11 from './imgs/car11.png';
+
 function AutoBranding() {
   const { t } = useTranslation(); 
   const [isMobile, setIsMobile] = useState(false);
@@ -21,33 +33,32 @@ function AutoBranding() {
     };
   }, []);
 
-  const imageUrl =
-    'https://retailminded.com/wp-content/uploads/2016/03/EN_GreenOlive-1.jpg';
+  const imageUrls = [
+    car1,
+    car2,
+    car3,
+    car4,
+    car5,
+    car6,
+    car7,
+    car8,
+    car9,
+    car10,
+    car11,
+  ];
+
   const texts = [
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
+    'Saray Çikiloo',
+    'Keçmişin Dadı',
+    'Bakı Süd',
+    'Mint Sənaye',
+    'Saray Choko Lips',
+    'Mint Sənaye',
+    'Mint Sənaye',
+    'Metro Park Lotoreya',
+    'Universal Magmaweld',
+    'Selenium',
+    'CityMed',
   ];
 
   return (
@@ -71,7 +82,7 @@ function AutoBranding() {
           textAlign="center"
           pb="30px"
         >
-          {t('autoBranding')} 
+          {t('autoBranding')}
         </Text>
         <Box
           className="mainCard"
@@ -82,7 +93,7 @@ function AutoBranding() {
           gap={{ base: '10px', sm: '16px' }}
           pb="50px"
         >
-          {texts.map((text, index) => (
+          {imageUrls.map((url, index) => (
             <Box
               key={index}
               className="card"
@@ -100,7 +111,7 @@ function AutoBranding() {
               _hover={{ cursor: 'pointer' }}
             >
               <Image
-                src={imageUrl}
+                src={url}
                 pos="absolute"
                 top="-70px"
                 left="50%"
@@ -121,7 +132,7 @@ function AutoBranding() {
                   fontWeight="bold"
                   fontSize={{ base: '16px', sm: '18px' }}
                 >
-                  {text}
+                  {texts[index]}
                 </Text>
               </Box>
             </Box>
