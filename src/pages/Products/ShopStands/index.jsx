@@ -3,6 +3,9 @@ import { Box, Text, Image } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
+import shopStand1 from './imgs/shopStand1.png';
+import shopStand2 from './imgs/shopStand2.png';
+import shopStand3 from './imgs/shopStand3.png';
 
 function ShopStands() {
   const { t } = useTranslation(); 
@@ -21,33 +24,16 @@ function ShopStands() {
     };
   }, []);
 
-  const imageUrl =
-    'https://retailminded.com/wp-content/uploads/2016/03/EN_GreenOlive-1.jpg';
+  const imageUrls = [
+    shopStand1,
+    shopStand2,
+    shopStand3
+  ];
+
   const texts = [
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
+    'Cheetos Stand',
+    'Lays Stand',
+    'Lays, Doritos, Xpyc Team Stand',
   ];
 
   return (
@@ -82,7 +68,7 @@ function ShopStands() {
           gap={{ base: '10px', sm: '16px' }}
           pb="50px"
         >
-          {texts.map((text, index) => (
+          {imageUrls.map((url, index) => (
             <Box
               key={index}
               className="card"
@@ -100,7 +86,7 @@ function ShopStands() {
               _hover={{ cursor: 'pointer' }}
             >
               <Image
-                src={imageUrl}
+                src={url}
                 pos="absolute"
                 top="-70px"
                 left="50%"
@@ -121,7 +107,7 @@ function ShopStands() {
                   fontWeight="bold"
                   fontSize={{ base: '16px', sm: '18px' }}
                 >
-                  {text}
+                  {texts[index]}
                 </Text>
               </Box>
             </Box>
