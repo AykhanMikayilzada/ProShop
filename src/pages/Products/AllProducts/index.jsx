@@ -4,17 +4,20 @@ import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
 
-import car1 from './imgs/car1.png';
-import car2 from './imgs/car2.png';
-import car3 from './imgs/car3.png';
-import car4 from './imgs/car4.png';
-import car5 from './imgs/car5.png';
-import car6 from './imgs/car6.png';
-import car7 from './imgs/car7.png';
-import car8 from './imgs/car8.png';
-import car9 from './imgs/car9.png';
-import car10 from './imgs/car10.png';
-import car11 from './imgs/car11.png';
+//Auto Branding
+import car1 from '../AutoBranding/imgs/car1.png';
+import car2 from '../AutoBranding/imgs/car2.png';
+import car3 from '../AutoBranding/imgs/car3.png';
+import car4 from '../AutoBranding/imgs/car4.png';
+import car5 from '../AutoBranding/imgs/car5.png';
+import car6 from '../AutoBranding/imgs/car6.png';
+import car7 from '../AutoBranding/imgs/car7.png';
+import car8 from '../AutoBranding/imgs/car8.png';
+import car9 from '../AutoBranding/imgs/car9.png';
+import car10 from '../AutoBranding/imgs/car10.png';
+import car11 from '../AutoBranding/imgs/car11.png';
+
+//Promos
 import promo1 from '../Promo/imgs/promo1.png';
 import promo2 from '../Promo/imgs/promo2.png';
 import promo3 from '../Promo/imgs/promo3.png';
@@ -28,6 +31,14 @@ import promo12 from '../Promo/imgs/promo12.png';
 import promo13 from '../Promo/imgs/promo13.png';
 import promo14 from '../Promo/imgs/promo14.png';
 import promo15 from '../Promo/imgs/promo15.png';
+
+//Shop Stands
+import shopStand1 from "../ShopStands/imgs/shopStand1.png"
+import shopStand2 from "../ShopStands/imgs/shopStand2.png"
+import shopStand3 from "../ShopStands/imgs/shopStand3.png"
+import polygraph1 from "../Polypraph/imgs/polygraph1.png"
+import polygraph2 from "../Polypraph/imgs/polygraph2.png"
+import polygraph3 from "../Polypraph/imgs/polygraph3.png"
 
 function AllProducts() {
   const { t } = useTranslation(); 
@@ -71,6 +82,12 @@ function AllProducts() {
     promo13,
     promo14,
     promo15,
+    shopStand1,
+    shopStand2,
+    shopStand3,
+    polygraph1,
+    polygraph2,
+    polygraph3
   ];
 
   const texts = [
@@ -98,6 +115,12 @@ function AllProducts() {
     'Promo 13',
     'Promo 14',
     'Promo 15',
+    'Cheetos Stand',
+    'Lays Stand',
+    'Lays, Doritos, Xpyc Team Stand',
+    'Scalis Poliqrafiya',
+    'Sertifikat',
+    'Özəl Medallar',
   ];
 
   return (
