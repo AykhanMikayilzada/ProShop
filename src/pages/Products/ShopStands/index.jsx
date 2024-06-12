@@ -6,12 +6,18 @@ import FooterSide from '../../../components/FooterSide';
 import shopStand1 from './imgs/shopStand1.png';
 import shopStand2 from './imgs/shopStand2.png';
 import shopStand3 from './imgs/shopStand3.png';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function ShopStands() {
   const { t } = useTranslation(); 
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -67,6 +73,8 @@ function ShopStands() {
           flexWrap="wrap"
           gap={{ base: '10px', sm: '16px' }}
           pb="50px"
+          data-aos="fade"
+          data-aos-once="true"
         >
           {imageUrls.map((url, index) => (
             <Box
@@ -84,6 +92,8 @@ function ShopStands() {
               mt={!isMobile ? '100px' : '70px'}
               overflow="visible"
               _hover={{ cursor: 'pointer' }}
+              data-aos="fade" 
+              data-aos-once="true" 
             >
               <Image
                 src={url}

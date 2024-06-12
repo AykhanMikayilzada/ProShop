@@ -160,6 +160,7 @@ function AllProducts() {
           gap={{ base: "10px", sm: "16px" }}
           pb="50px"
           data-aos="fade"
+          data-aos-once="true"
         >
           {imageUrls.map((url, index) => (
             <Box
@@ -177,6 +178,8 @@ function AllProducts() {
               mt={!isMobile ? "100px" : "70px"}
               overflow="visible"
               _hover={{ cursor: "pointer" }}
+              data-aos="fade"
+              data-aos-once="true"
             >
               <Image
                 src={url}

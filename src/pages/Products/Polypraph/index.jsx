@@ -1,40 +1,38 @@
-import React, { useEffect, useState } from 'react';
-import { Box, Text, Image } from '@chakra-ui/react';
-import { useTranslation } from 'react-i18next';
-import Header from '../../../components/Header';
-import FooterSide from '../../../components/FooterSide';
-import polygraph1 from '../../Products/Polypraph/imgs/polygraph1.png';
-import polygraph2 from '../../Products/Polypraph/imgs/polygraph2.png';
-import polygraph3 from '../../Products/Polypraph/imgs/polygraph3.png';
+import React, { useEffect, useState } from "react";
+import { Box, Text, Image } from "@chakra-ui/react";
+import { useTranslation } from "react-i18next";
+import Header from "../../../components/Header";
+import FooterSide from "../../../components/FooterSide";
+import polygraph1 from "../../Products/Polypraph/imgs/polygraph1.png";
+import polygraph2 from "../../Products/Polypraph/imgs/polygraph2.png";
+import polygraph3 from "../../Products/Polypraph/imgs/polygraph3.png";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Polgraphy() {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 
-  const imageUrls = [
-    polygraph1,
-    polygraph2,
-    polygraph3,
-  ];
+  const imageUrls = [polygraph1, polygraph2, polygraph3];
 
-  const texts = [
-    'Scalis Poliqrafiya',
-    'Sertifikat',
-    'Özəl Medallar',
-  ];
+  const texts = ["Scalis Poliqrafiya", "Sertifikat", "Özəl Medallar"];
 
   return (
     <>
@@ -52,12 +50,13 @@ function Polgraphy() {
         <Text
           textColor="black"
           fontWeight="bold"
-          fontSize={{ base: '30px', sm: '40px' }}
+          fontSize={{ base: "30px", sm: "40px" }}
           w="100%"
           textAlign="center"
           pb="30px"
+          
         >
-          {t('polgraphy')}
+          {t("polgraphy")}
         </Text>
         <Box
           className="mainCard"
@@ -65,14 +64,16 @@ function Polgraphy() {
           justifyContent="space-evenly"
           mt="50px"
           flexWrap="wrap"
-          gap={{ base: '10px', sm: '16px' }}
+          gap={{ base: "10px", sm: "16px" }}
           pb="50px"
+          data-aos="fade"
+          data-aos-once="true"
         >
           {imageUrls.map((url, index) => (
             <Box
               key={index}
               className="card"
-              w={{ base: '240px', sm: '288px' }}
+              w={{ base: "240px", sm: "288px" }}
               h="200px"
               boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
               bg="white"
@@ -81,9 +82,11 @@ function Polgraphy() {
               flexDir="column"
               alignItems="center"
               pos="relative"
-              mt={!isMobile ? '100px' : '70px'}
+              mt={!isMobile ? "100px" : "70px"}
               overflow="visible"
-              _hover={{ cursor: 'pointer' }}
+              _hover={{ cursor: "pointer" }}
+              data-aos="fade"
+              data-aos-once="true"
             >
               <Image
                 src={url}
@@ -94,7 +97,7 @@ function Polgraphy() {
                 w="auto"
                 h="140px"
                 transition="transform 0.3s ease"
-                _hover={{ transform: 'translateX(-50%) scale(1.1)' }}
+                _hover={{ transform: "translateX(-50%) scale(1.1)" }}
               />
               <Box
                 display="flex"
@@ -105,7 +108,7 @@ function Polgraphy() {
                 <Text
                   textColor="black"
                   fontWeight="bold"
-                  fontSize={{ base: '16px', sm: '18px' }}
+                  fontSize={{ base: "16px", sm: "18px" }}
                 >
                   {texts[index]}
                 </Text>

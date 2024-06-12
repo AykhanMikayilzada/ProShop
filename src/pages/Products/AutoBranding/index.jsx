@@ -3,6 +3,8 @@ import { Box, Text, Image } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 import car1 from './imgs/car1.png';
 import car2 from './imgs/car2.png';
@@ -21,6 +23,10 @@ function AutoBranding() {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -61,6 +67,12 @@ function AutoBranding() {
     'CityMed',
   ];
 
+  useEffect(() => {
+    if (!isMobile) {
+      AOS.refresh();
+    }
+  }, [isMobile]);
+
   return (
     <>
       <Header />
@@ -92,6 +104,8 @@ function AutoBranding() {
           flexWrap="wrap"
           gap={{ base: '10px', sm: '16px' }}
           pb="50px"
+          data-aos="fade"
+          data-aos-once="true"
         >
           {imageUrls.map((url, index) => (
             <Box
@@ -109,6 +123,8 @@ function AutoBranding() {
               mt={!isMobile ? '100px' : '70px'}
               overflow="visible"
               _hover={{ cursor: 'pointer' }}
+              data-aos="fade" 
+              data-aos-once="true" 
             >
               <Image
                 src={url}
@@ -120,6 +136,7 @@ function AutoBranding() {
                 h="140px"
                 transition="transform 0.3s ease"
                 _hover={{ transform: 'translateX(-50%) scale(1.1)' }}
+                data-aos={isMobile ? 'fade-up' : ''}  
               />
               <Box
                 display="flex"

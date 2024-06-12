@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Link } from "react-router-dom"; // React Router'dan Link bileşenini ekledim
+import { Link } from "react-router-dom";
 import picture1 from "./imgs/img1.svg";
 import picture2 from "./imgs/img2.svg";
 import picture3 from "./imgs/img3.svg";
@@ -38,6 +38,7 @@ function FooterSide() {
           justifyContent="center"
           className="whiteFooterBox"
           data-aos="fade-up" 
+          data-aos-once="true"
         >
           <Image
             src={picture1}
@@ -79,7 +80,6 @@ function FooterSide() {
             gap="50px"
           >
             <Box>
-              {/* Logo'ya Link ekledim */}
               <Link to="/">
                 <Image src={logo} alt="logo" w="350px" />
               </Link>
