@@ -23,7 +23,6 @@ function Promo() {
 
   const imageUrls = [
     '/src/pages/Products/Promo/imgs/promo1.png',
-    '/src/pages/Products/Promo/imgs/promo2.png',
     '/src/pages/Products/Promo/imgs/promo3.png',
     '/src/pages/Products/Promo/imgs/promo4.png',
     '/src/pages/Products/Promo/imgs/promo5.png',
@@ -38,19 +37,18 @@ function Promo() {
   ];
   
   const texts = [
-    'Promo 1',
-    'Promo 2',
-    'Promo 3',
-    'Promo 4',
-    'Promo 5',
-    'Promo 6',
-    'Promo 8',
-    'Promo 9',
-    'Promo 10',
-    'Promo 12',
-    'Promo 13',
-    'Promo 14',
-    'Promo 15',
+    'Qapı Lövhəsi',
+    'Papaq',
+    'Stəkan Altlığı',
+    'Not Dəfrəri',
+    'Powerbank',
+    'Qələm',
+    'Özəl Qutu',
+    'Termos',
+    'Dəftər Qələm',
+    'Kətan Çanta',
+    'Qələm',
+    'Kətan Çanta',
   ];
 
   return (
