@@ -21,33 +21,36 @@ function Promo() {
     };
   }, []);
 
-  const imageUrl =
-    'https://retailminded.com/wp-content/uploads/2016/03/EN_GreenOlive-1.jpg';
+  const imageUrls = [
+    '/src/pages/Products/Promo/imgs/promo1.png',
+    '/src/pages/Products/Promo/imgs/promo2.png',
+    '/src/pages/Products/Promo/imgs/promo3.png',
+    '/src/pages/Products/Promo/imgs/promo4.png',
+    '/src/pages/Products/Promo/imgs/promo5.png',
+    '/src/pages/Products/Promo/imgs/promo6.png',
+    '/src/pages/Products/Promo/imgs/promo8.png',
+    '/src/pages/Products/Promo/imgs/promo9.png',
+    '/src/pages/Products/Promo/imgs/promo10.png',
+    '/src/pages/Products/Promo/imgs/promo12.png',
+    '/src/pages/Products/Promo/imgs/promo13.png',
+    '/src/pages/Products/Promo/imgs/promo14.png',
+    '/src/pages/Products/Promo/imgs/promo15.png',
+  ];
+  
   const texts = [
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
+    'Promo 1',
+    'Promo 2',
+    'Promo 3',
+    'Promo 4',
+    'Promo 5',
+    'Promo 6',
+    'Promo 8',
+    'Promo 9',
+    'Promo 10',
+    'Promo 12',
+    'Promo 13',
+    'Promo 14',
+    'Promo 15',
   ];
 
   return (
@@ -100,7 +103,7 @@ function Promo() {
               _hover={{ cursor: 'pointer' }}
             >
               <Image
-                src={imageUrl}
+                src={imageUrls[index]}
                 pos="absolute"
                 top="-70px"
                 left="50%"

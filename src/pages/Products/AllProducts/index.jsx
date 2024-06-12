@@ -15,6 +15,19 @@ import car8 from './imgs/car8.png';
 import car9 from './imgs/car9.png';
 import car10 from './imgs/car10.png';
 import car11 from './imgs/car11.png';
+import promo1 from '../Promo/imgs/promo1.png';
+import promo2 from '../Promo/imgs/promo2.png';
+import promo3 from '../Promo/imgs/promo3.png';
+import promo4 from '../Promo/imgs/promo4.png';
+import promo5 from '../Promo/imgs/promo5.png';
+import promo6 from '../Promo/imgs/promo6.png';
+import promo8 from '../Promo/imgs/promo8.png';
+import promo9 from '../Promo/imgs/promo9.png';
+import promo10 from '../Promo/imgs/promo10.png';
+import promo12 from '../Promo/imgs/promo12.png';
+import promo13 from '../Promo/imgs/promo13.png';
+import promo14 from '../Promo/imgs/promo14.png';
+import promo15 from '../Promo/imgs/promo15.png';
 
 function AllProducts() {
   const { t } = useTranslation(); 
@@ -45,6 +58,19 @@ function AllProducts() {
     car9,
     car10,
     car11,
+    promo1,
+    promo2,
+    promo3,
+    promo4,
+    promo5,
+    promo6,
+    promo8,
+    promo9,
+    promo10,
+    promo12,
+    promo13,
+    promo14,
+    promo15,
   ];
 
   const texts = [
@@ -59,6 +85,19 @@ function AllProducts() {
     'Universal Magmaweld',
     'Selenium',
     'City Med',
+    'Promo 1',
+    'Promo 2',
+    'Promo 3',
+    'Promo 4',
+    'Promo 5',
+    'Promo 6',
+    'Promo 8',
+    'Promo 9',
+    'Promo 10',
+    'Promo 12',
+    'Promo 13',
+    'Promo 14',
+    'Promo 15',
   ];
 
   return (
