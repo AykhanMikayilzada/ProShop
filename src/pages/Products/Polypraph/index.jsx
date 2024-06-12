@@ -31,9 +31,9 @@ function Polgraphy() {
   ];
 
   const texts = [
-    'Polygraph 1',
-    'Polygraph 2',
-    'Polygraph 3',
+    'Scalis Poliqrafiya',
+    'Sertifikat',
+    'Özəl Medallar',
   ];
 
   return (
