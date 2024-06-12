@@ -3,9 +3,12 @@ import { Box, Text, Image } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
+import polygraph1 from '../../Products/Polypraph/imgs/polygraph1.png';
+import polygraph2 from '../../Products/Polypraph/imgs/polygraph2.png';
+import polygraph3 from '../../Products/Polypraph/imgs/polygraph3.png';
 
 function Polgraphy() {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -21,33 +24,16 @@ function Polgraphy() {
     };
   }, []);
 
-  const imageUrl =
-    'https://retailminded.com/wp-content/uploads/2016/03/EN_GreenOlive-1.jpg';
+  const imageUrls = [
+    polygraph1,
+    polygraph2,
+    polygraph3,
+  ];
+
   const texts = [
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
-    'Fresh Avocados',
+    'Polygraph 1',
+    'Polygraph 2',
+    'Polygraph 3',
   ];
 
   return (
@@ -71,7 +57,7 @@ function Polgraphy() {
           textAlign="center"
           pb="30px"
         >
-          {t('polgraphy')} 
+          {t('polgraphy')}
         </Text>
         <Box
           className="mainCard"
@@ -82,7 +68,7 @@ function Polgraphy() {
           gap={{ base: '10px', sm: '16px' }}
           pb="50px"
         >
-          {texts.map((text, index) => (
+          {imageUrls.map((url, index) => (
             <Box
               key={index}
               className="card"
@@ -100,7 +86,7 @@ function Polgraphy() {
               _hover={{ cursor: 'pointer' }}
             >
               <Image
-                src={imageUrl}
+                src={url}
                 pos="absolute"
                 top="-70px"
                 left="50%"
@@ -121,7 +107,7 @@ function Polgraphy() {
                   fontWeight="bold"
                   fontSize={{ base: '16px', sm: '18px' }}
                 >
-                  {text}
+                  {texts[index]}
                 </Text>
               </Box>
             </Box>
