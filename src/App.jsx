@@ -25,6 +25,7 @@ function App() {
         <Route path="/products" element={<AllProducts />} />
         <Route path="/products/all" element={<AllProducts />} />
         <Route path="/products/auto-branding" element={<AutoBranding />} />
+        <Route path="/products/auto-branding/:id" element={<AutoBranding />} />
         <Route path="/products/bilboards" element={<Bilboards />} />
         <Route path="/products/events" element={<Events />} />
         <Route path="/products/exibition-stands" element={<ExibitionStands />} />
@@ -33,6 +34,9 @@ function App() {
         <Route path="/products/polgraphy" element={<Polgraphy />} />
         <Route path="/products/promo" element={<Promo />} />
         <Route path="/products/shop-stands" element={<ShopStands />} />
+        <Route path="/products/shop-stands/:id" element={<ShopStands />} />
+        <Route path="/products/promo/:id" element={<Promo />} />
+        <Route path="/products/polgraphy/:id" element={<Polgraphy />} />
         <Route path="*" element={<Page404 />} />
       </Routes>
     </Router>

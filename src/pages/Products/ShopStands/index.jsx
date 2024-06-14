@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Image } from '@chakra-ui/react';
+import { Box, Text, Image, Button } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
 import shopStand1 from './imgs/shopStand1.png';
@@ -9,8 +10,22 @@ import shopStand3 from './imgs/shopStand3.png';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
+const imageUrls = [
+  shopStand1,
+  shopStand2,
+  shopStand3,
+];
+
+const texts = [
+  'Cheetos Stand',
+  'Lays Stand',
+  'Lays, Doritos, Xpyc Team Stand',
+];
+
 function ShopStands() {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -30,17 +45,50 @@ function ShopStands() {
     };
   }, []);
 
-  const imageUrls = [
-    shopStand1,
-    shopStand2,
-    shopStand3
-  ];
+  const handleCardClick = (index) => {
+    navigate(`/products/shop-stands/${index + 1}`);
+  };
 
-  const texts = [
-    'Cheetos Stand',
-    'Lays Stand',
-    'Lays, Doritos, Xpyc Team Stand',
-  ];
+  if (id !== undefined) {
+    const index = parseInt(id, 10) - 1;
+
+    const handleBackClick = () => {
+      navigate('/products/shop-stands');
+    };
+
+    return (
+      <>
+        <Header />
+        <Box
+          display="flex"
+          flexDir="column"
+          alignItems="center"
+          m="auto"
+          mt="120px"
+          p="20px"
+          maxW="800px"
+          w="100%"
+          boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
+          borderRadius="md"
+        >
+          <Button onClick={handleBackClick} mb="20px">
+            Geri
+          </Button>
+          <Image
+            src={imageUrls[index]}
+            alt={texts[index]}
+            boxSize="400px"
+            objectFit="contain"
+            mb="20px"
+          />
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+            {texts[index]}
+          </Text>
+        </Box>
+        <FooterSide />
+      </>
+    );
+  }
 
   return (
     <>
@@ -63,7 +111,7 @@ function ShopStands() {
           textAlign="center"
           pb="30px"
         >
-          {t('shopStands')} 
+          {t('shopStands')}
         </Text>
         <Box
           className="mainCard"
@@ -92,8 +140,9 @@ function ShopStands() {
               mt={!isMobile ? '100px' : '70px'}
               overflow="visible"
               _hover={{ cursor: 'pointer' }}
-              data-aos="fade" 
-              data-aos-once="true" 
+              onClick={() => handleCardClick(index)}
+              data-aos="fade"
+              data-aos-once="true"
             >
               <Image
                 src={url}

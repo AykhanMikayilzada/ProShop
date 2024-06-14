@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Box, Text, Image } from "@chakra-ui/react";
+import { Box, Text, Image, Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../../components/Header";
 import FooterSide from "../../../components/FooterSide";
 import polygraph1 from "../../Products/Polypraph/imgs/polygraph1.png";
@@ -9,8 +10,14 @@ import polygraph3 from "../../Products/Polypraph/imgs/polygraph3.png";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+const imageUrls = [polygraph1, polygraph2, polygraph3];
+
+const texts = ["Scalis Poliqrafiya", "Sertifikat", "Özəl Medallar"];
+
 function Polgraphy() {
   const { t } = useTranslation();
+  const { id } = useParams();
+  const navigate = useNavigate();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -30,9 +37,50 @@ function Polgraphy() {
     };
   }, []);
 
-  const imageUrls = [polygraph1, polygraph2, polygraph3];
+  const handleCardClick = (index) => {
+    navigate(`/products/polgraphy/${index + 1}`);
+  };
 
-  const texts = ["Scalis Poliqrafiya", "Sertifikat", "Özəl Medallar"];
+  if (id !== undefined) {
+    const index = parseInt(id, 10) - 1;
+
+    const handleBackClick = () => {
+      navigate("/products/polgraphy");
+    };
+
+    return (
+      <>
+        <Header />
+        <Box
+          display="flex"
+          flexDir="column"
+          alignItems="center"
+          m="auto"
+          mt="120px"
+          p="20px"
+          maxW="800px"
+          w="100%"
+          boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
+          borderRadius="md"
+        >
+          <Button onClick={handleBackClick} mb="20px">
+            Geri
+          </Button>
+          <Image
+            src={imageUrls[index]}
+            alt={texts[index]}
+            boxSize="400px"
+            objectFit="contain"
+            mb="20px"
+          />
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+            {texts[index]}
+          </Text>
+        </Box>
+        <FooterSide />
+      </>
+    );
+  }
 
   return (
     <>
@@ -54,7 +102,6 @@ function Polgraphy() {
           w="100%"
           textAlign="center"
           pb="30px"
-          
         >
           {t("polgraphy")}
         </Text>
@@ -85,6 +132,7 @@ function Polgraphy() {
               mt={!isMobile ? "100px" : "70px"}
               overflow="visible"
               _hover={{ cursor: "pointer" }}
+              onClick={() => handleCardClick(index)}
               data-aos="fade"
               data-aos-once="true"
             >

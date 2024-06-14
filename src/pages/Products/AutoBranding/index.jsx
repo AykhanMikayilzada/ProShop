@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Image } from '@chakra-ui/react';
+import { Box, Text, Image, Button } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
+import { useNavigate, useParams } from 'react-router-dom';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
 import AOS from 'aos';
@@ -18,8 +19,38 @@ import car9 from './imgs/car9.png';
 import car10 from './imgs/car10.png';
 import car11 from './imgs/car11.png';
 
+const imageUrls = [
+  car1,
+  car2,
+  car3,
+  car4,
+  car5,
+  car6,
+  car7,
+  car8,
+  car9,
+  car10,
+  car11,
+];
+
+const texts = [
+  'Saray Çikiloo',
+  'Keçmişin Dadı',
+  'Bakı Süd',
+  'Mint Sənaye',
+  'Saray Choko Lips',
+  'Mint Sənaye',
+  'Mint Sənaye',
+  'Metro Park Lotoreya',
+  'Universal Magmaweld',
+  'Selenium',
+  'CityMed',
+];
+
 function AutoBranding() {
-  const { t } = useTranslation(); 
+  const { t } = useTranslation();
+  const navigate = useNavigate();
+  const { id } = useParams();
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -39,39 +70,50 @@ function AutoBranding() {
     };
   }, []);
 
-  const imageUrls = [
-    car1,
-    car2,
-    car3,
-    car4,
-    car5,
-    car6,
-    car7,
-    car8,
-    car9,
-    car10,
-    car11,
-  ];
+  const handleCardClick = (index) => {
+    navigate(`/products/auto-branding/${index + 1}`);
+  };
 
-  const texts = [
-    'Saray Çikiloo',
-    'Keçmişin Dadı',
-    'Bakı Süd',
-    'Mint Sənaye',
-    'Saray Choko Lips',
-    'Mint Sənaye',
-    'Mint Sənaye',
-    'Metro Park Lotoreya',
-    'Universal Magmaweld',
-    'Selenium',
-    'CityMed',
-  ];
+  if (id !== undefined) {
+    const index = parseInt(id, 10) - 1;
 
-  useEffect(() => {
-    if (!isMobile) {
-      AOS.refresh();
-    }
-  }, [isMobile]);
+    const handleBackClick = () => {
+      navigate('/products/auto-branding');
+    };
+
+    return (
+      <>
+        <Header />
+        <Box
+          display="flex"
+          flexDir="column"
+          alignItems="center"
+          m="auto"
+          mt="120px"
+          p="20px"
+          maxW="800px"
+          w="100%"
+          boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
+          borderRadius="md"
+        >
+          <Button onClick={handleBackClick} mb="20px">
+            Geri
+          </Button>
+          <Image
+            src={imageUrls[index]}
+            alt={texts[index]}
+            boxSize="400px"
+            objectFit="contain"
+            mb="20px"
+          />
+          <Text fontSize="2xl" fontWeight="bold" textAlign="center">
+            {texts[index]}
+          </Text>
+        </Box>
+        <FooterSide />
+      </>
+    );
+  }
 
   return (
     <>
@@ -123,8 +165,9 @@ function AutoBranding() {
               mt={!isMobile ? '100px' : '70px'}
               overflow="visible"
               _hover={{ cursor: 'pointer' }}
-              data-aos="fade" 
-              data-aos-once="true" 
+              onClick={() => handleCardClick(index)}
+              data-aos="fade"
+              data-aos-once="true"
             >
               <Image
                 src={url}
@@ -136,7 +179,6 @@ function AutoBranding() {
                 h="140px"
                 transition="transform 0.3s ease"
                 _hover={{ transform: 'translateX(-50%) scale(1.1)' }}
-                data-aos={isMobile ? 'fade-up' : ''}  
               />
               <Box
                 display="flex"
