@@ -26,11 +26,11 @@ import az from "./imgs/az.png";
 function Header() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { t, i18n } = useTranslation();
-  const location = useLocation(); 
+  const location = useLocation();
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    const newPath = `/${lng}${location.pathname}`; 
+    const newPath = `/${lng}${location.pathname}`;
     window.history.replaceState(null, null, newPath);
   };
 
@@ -102,38 +102,36 @@ function Header() {
             </Text>
           </MenuButton>
           <MenuList>
-            <MenuItem>
-              <Link to="/products/all">{t("allProducts")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/auto-branding">{t("autoBranding")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/bilboards">{t("bilboards")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/events">{t("events")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/exibition-stands">
-                {t("exibitionStands")}
-              </Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/indoor">{t("indoor")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/outdoor">{t("outdoor")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/polgraphy">{t("polgraphy")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/promo">{t("promo")}</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/products/shop-stands">{t("shopStands")}</Link>
-            </MenuItem>
+            <Link to="/products/all">
+              <MenuItem>{t("allProducts")}</MenuItem>
+            </Link>
+            <Link to="/products/auto-branding">
+              <MenuItem>{t("autoBranding")}</MenuItem>
+            </Link>
+            <Link to="/products/bilboards">
+              <MenuItem>{t("bilboards")}</MenuItem>
+            </Link>
+            <Link to="/products/events">
+              <MenuItem>{t("events")}</MenuItem>
+            </Link>
+            <Link to="/products/exibition-stands">
+              <MenuItem>{t("exibitionStands")}</MenuItem>
+            </Link>
+            <Link to="/products/indoor">
+              <MenuItem>{t("indoor")}</MenuItem>
+            </Link>
+            <Link to="/products/outdoor">
+              <MenuItem>{t("outdoor")}</MenuItem>
+            </Link>
+            <Link to="/products/polgraphy">
+              <MenuItem>{t("polgraphy")}</MenuItem>
+            </Link>
+            <Link to="/products/promo">
+              <MenuItem>{t("promo")}</MenuItem>
+            </Link>
+            <Link to="/products/shop-stands">
+              <MenuItem>{t("shopStands")}</MenuItem>
+            </Link>
           </MenuList>
         </Menu>
         <Link to="/contact">
@@ -188,38 +186,36 @@ function Header() {
                 </Text>
               </MenuButton>
               <MenuList>
-                <MenuItem>
-                  <Link to="/products/all">{t("allProducts")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/auto-branding">{t("autoBranding")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/bilboards">{t("bilboards")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/events">{t("events")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/exibition-stands">
-                    {t("exibitionStands")}
-                  </Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/indoor">{t("indoor")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/outdoor">{t("outdoor")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/polgraphy">{t("polgraphy")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/promo">{t("promo")}</Link>
-                </MenuItem>
-                <MenuItem>
-                  <Link to="/products/shop-stands">{t("shopStands")}</Link>
-                </MenuItem>
+                <Link to="/products/all">
+                  <MenuItem>{t("allProducts")}</MenuItem>
+                </Link>
+                <Link to="/products/auto-branding">
+                  <MenuItem>{t("autoBranding")}</MenuItem>
+                </Link>
+                <Link to="/products/bilboards">
+                  <MenuItem>{t("bilboards")}</MenuItem>
+                </Link>
+                <Link to="/products/events">
+                  <MenuItem>{t("events")}</MenuItem>
+                </Link>
+                <Link to="/products/exibition-stands">
+                  <MenuItem>{t("exibitionStands")}</MenuItem>
+                </Link>
+                <Link to="/products/indoor">
+                  <MenuItem>{t("indoor")}</MenuItem>
+                </Link>
+                <Link to="/products/outdoor">
+                  <MenuItem>{t("outdoor")}</MenuItem>
+                </Link>
+                <Link to="/products/polgraphy">
+                  <MenuItem>{t("polgraphy")}</MenuItem>
+                </Link>
+                <Link to="/products/promo">
+                  <MenuItem>{t("promo")}</MenuItem>
+                </Link>
+                <Link to="/products/shop-stands">
+                  <MenuItem>{t("shopStands")}</MenuItem>
+                </Link>
               </MenuList>
             </Menu>
             <Link to="/contact">
