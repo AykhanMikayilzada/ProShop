@@ -1,92 +1,50 @@
 import React, { useEffect, useState } from "react";
 import { Box, Text, Image, Button } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
-import { useNavigate, useParams } from "react-router-dom";
 import Header from "../../../components/Header";
 import FooterSide from "../../../components/FooterSide";
-import polygraph1 from "../../Products/Polypraph/imgs/polygraph1.png";
-import polygraph2 from "../../Products/Polypraph/imgs/polygraph2.png";
-import polygraph3 from "../../Products/Polypraph/imgs/polygraph3.png";
+import { ref, listAll, getDownloadURL } from "firebase/storage";
+import { storage } from "../../../utils/firebase";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const imageUrls = [polygraph1, polygraph2, polygraph3];
-
-const texts = ["Scalis Poliqrafiya", "Sertifikat", "Özəl Medallar"];
-
-function Polgraphy() {
+function Polygraph() {
   const { t } = useTranslation();
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [isMobile, setIsMobile] = useState(false);
+  const [images, setImages] = useState([]);
+  const [texts, setTexts] = useState([]);
 
   useEffect(() => {
     AOS.init({
       duration: 1000,
     });
 
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
+    fetchImages();
   }, []);
 
-  const handleCardClick = (index) => {
-    navigate(`/products/polgraphy/${index + 1}`);
+  const fetchImages = async () => {
+    try {
+      const folder = "Polygraph";
+      const storageRef = ref(storage, folder);
+      const result = await listAll(storageRef);
+      const urlPromises = result.items.map((imageRef) =>
+        getDownloadURL(imageRef)
+      );
+      const urls = await Promise.all(urlPromises);
+      setImages(urls);
+
+      const textPromises = result.items.map((item) => item.name);
+      const textArray = await Promise.all(textPromises);
+      setTexts(textArray);
+    } catch (error) {
+      console.error("Error fetching images from Firebase:", error);
+    }
   };
-
-  if (id !== undefined) {
-    const index = parseInt(id, 10) - 1;
-
-    const handleBackClick = () => {
-      navigate("/products/polgraphy");
-    };
-
-    return (
-      <>
-        <Header />
-        <Box
-          display="flex"
-          flexDir="column"
-          alignItems="center"
-          m="auto"
-          mt="120px"
-          p="20px"
-          maxW="800px"
-          w="100%"
-          boxShadow="rgba(0, 0, 0, 0.1) 0px 4px 12px, rgba(0, 0, 0, 0.1) 0px 6px 24px"
-          borderRadius="md"
-        >
-          <Button onClick={handleBackClick} mb="20px">
-            Geri
-          </Button>
-          <Image
-            src={imageUrls[index]}
-            alt={texts[index]}
-            boxSize="400px"
-            objectFit="contain"
-            mb="20px"
-          />
-          <Text fontSize="2xl" fontWeight="bold" textAlign="center">
-            {texts[index]}
-          </Text>
-        </Box>
-        <FooterSide />
-      </>
-    );
-  }
 
   return (
     <>
       <Header />
       <Box
-        className="Polgraphy"
+        className="Polygraph"
         display="flex"
         flexDir="column"
         maxW="1200px"
@@ -116,7 +74,7 @@ function Polgraphy() {
           data-aos="fade"
           data-aos-once="true"
         >
-          {imageUrls.map((url, index) => (
+          {images.map((url, index) => (
             <Box
               key={index}
               className="card"
@@ -129,10 +87,8 @@ function Polgraphy() {
               flexDir="column"
               alignItems="center"
               pos="relative"
-              mt={!isMobile ? "100px" : "70px"}
+              mt="70px"
               overflow="visible"
-              _hover={{ cursor: "pointer" }}
-              onClick={() => handleCardClick(index)}
               data-aos="fade"
               data-aos-once="true"
             >
@@ -144,8 +100,6 @@ function Polgraphy() {
                 transform="translateX(-50%)"
                 w="auto"
                 h="140px"
-                transition="transform 0.3s ease"
-                _hover={{ transform: "translateX(-50%) scale(1.1)" }}
               />
               <Box
                 display="flex"
@@ -153,13 +107,6 @@ function Polgraphy() {
                 mt="100px"
                 alignItems="center"
               >
-                <Text
-                  textColor="black"
-                  fontWeight="bold"
-                  fontSize={{ base: "16px", sm: "18px" }}
-                >
-                  {texts[index]}
-                </Text>
               </Box>
             </Box>
           ))}
@@ -170,4 +117,4 @@ function Polgraphy() {
   );
 }
 
-export default Polgraphy;
+export default Polygraph;

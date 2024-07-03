@@ -8,7 +8,6 @@ import AllProducts from "./pages/Products/AllProducts";
 import AutoBranding from "./pages/Products/AutoBranding";
 import Bilboards from "./pages/Products/Bilboards";
 import Events from "./pages/Products/Events";
-import ExibitionStands from "./pages/Products/ExibitionStands";
 import Indoor from "./pages/Products/Indoor";
 import Outdoor from "./pages/Products/Outdoor";
 import Polgraphy from "./pages/Products/Polypraph";
@@ -28,7 +27,6 @@ function App() {
         <Route path="/products/auto-branding/:id" element={<AutoBranding />} />
         <Route path="/products/bilboards" element={<Bilboards />} />
         <Route path="/products/events" element={<Events />} />
-        <Route path="/products/exibition-stands" element={<ExibitionStands />} />
         <Route path="/products/indoor" element={<Indoor />} />
         <Route path="/products/outdoor" element={<Outdoor />} />
         <Route path="/products/polgraphy" element={<Polgraphy />} />

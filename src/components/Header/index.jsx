@@ -114,9 +114,6 @@ function Header() {
             <Link to="/products/events">
               <MenuItem>{t("events")}</MenuItem>
             </Link>
-            <Link to="/products/exibition-stands">
-              <MenuItem>{t("exibitionStands")}</MenuItem>
-            </Link>
             <Link to="/products/indoor">
               <MenuItem>{t("indoor")}</MenuItem>
             </Link>
@@ -197,9 +194,6 @@ function Header() {
                 </Link>
                 <Link to="/products/events">
                   <MenuItem>{t("events")}</MenuItem>
-                </Link>
-                <Link to="/products/exibition-stands">
-                  <MenuItem>{t("exibitionStands")}</MenuItem>
                 </Link>
                 <Link to="/products/indoor">
                   <MenuItem>{t("indoor")}</MenuItem>
