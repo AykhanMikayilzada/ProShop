@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Image, Spinner } from '@chakra-ui/react';
+import { Box, Text, Image, Spinner, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
@@ -11,6 +11,8 @@ function Indoor() {
   const [isMobile, setIsMobile] = useState(false);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   useEffect(() => {
     const handleResize = () => {
@@ -44,6 +46,11 @@ function Indoor() {
 
     fetchImages();
   }, []);
+
+  const handleImageClick = (url) => {
+    setSelectedImage(url);
+    onOpen();
+  };
 
   return (
     <>
@@ -96,6 +103,7 @@ function Indoor() {
                 mt={!isMobile ? '100px' : '70px'}
                 overflow="visible"
                 _hover={{ cursor: 'pointer' }}
+                onClick={() => handleImageClick(url)}
               >
                 <Image
                   src={url}
@@ -115,6 +123,14 @@ function Indoor() {
                   mt="100px"
                   alignItems="center"
                 >
+                  <Text
+                    textColor="black"
+                    fontWeight="bold"
+                    textAlign="center"
+                    fontSize={{ base: '16px', sm: '18px' }}
+                  >
+                    {url.split('/').pop().split('.')[0]} {/* Displaying image name without extension */}
+                  </Text>
                 </Box>
               </Box>
             ))
@@ -122,6 +138,18 @@ function Indoor() {
         </Box>
       </Box>
       <FooterSide />
+
+      {/* Modal for Image Display */}
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{t('imageReview')}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image src={selectedImage} w="100%" h="auto" />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 }

@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Image, Spinner } from '@chakra-ui/react';
+import { Box, Text, Image, Spinner, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
 import { storage } from '../../../utils/firebase';
 import { ref, listAll, getDownloadURL } from 'firebase/storage';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 function Billboards() {
   const { t } = useTranslation();
   const [isMobile, setIsMobile] = useState(false);
   const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -28,7 +36,7 @@ function Billboards() {
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const folder = 'Bilboards';
+        const folder = 'Bilboards'; // Firebase'deki klasör adı
         const storageRef = ref(storage, folder);
         const result = await listAll(storageRef);
         const urlPromises = result.items.map((imageRef) =>
@@ -36,7 +44,7 @@ function Billboards() {
         );
         const urls = await Promise.all(urlPromises);
         setImages(urls);
-        setLoading(false);
+        setIsLoading(false);
       } catch (error) {
         console.error('Error fetching images from Firebase:', error);
       }
@@ -44,6 +52,11 @@ function Billboards() {
 
     fetchImages();
   }, []);
+
+  const handleImageClick = (url) => {
+    setSelectedImage(url);
+    onOpen();
+  };
 
   return (
     <>
@@ -68,19 +81,27 @@ function Billboards() {
         >
           {t('bilboards')}
         </Text>
-        <Box
-          className="mainCard"
-          display="flex"
-          justifyContent="space-evenly"
-          mt="50px"
-          flexWrap="wrap"
-          gap={{ base: '10px', sm: '16px' }}
-          pb="50px"
-        >
-          {loading ? (
-            <Spinner size="xl" />
-          ) : (
-            images.map((url, index) => (
+        {isLoading ? (
+          <Spinner
+            thickness="4px"
+            speed="0.65s"
+            emptyColor="gray.200"
+            color="black"
+            size="xl"
+          />
+        ) : (
+          <Box
+            className="mainCard"
+            display="flex"
+            justifyContent="space-evenly"
+            mt="50px"
+            flexWrap="wrap"
+            gap={{ base: '10px', sm: '16px' }}
+            pb="50px"
+            data-aos="fade"
+            data-aos-once="true"
+          >
+            {images.map((url, index) => (
               <Box
                 key={index}
                 className="card"
@@ -96,6 +117,7 @@ function Billboards() {
                 mt={!isMobile ? '100px' : '70px'}
                 overflow="visible"
                 _hover={{ cursor: 'pointer' }}
+                onClick={() => handleImageClick(url)}
               >
                 <Image
                   src={url}
@@ -114,13 +136,32 @@ function Billboards() {
                   mt="100px"
                   alignItems="center"
                 >
+                  <Text
+                    textColor="black"
+                    fontWeight="bold"
+                    textAlign="center"
+                    fontSize={{ base: '16px', sm: '18px' }}
+                  >
+                    {url.split('/').pop().split('.')[0]}
+                  </Text>
                 </Box>
               </Box>
-            ))
-          )}
-        </Box>
+            ))}
+          </Box>
+        )}
       </Box>
       <FooterSide />
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{t('imageReview')}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image src={selectedImage} w="100%" h="auto" />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 }

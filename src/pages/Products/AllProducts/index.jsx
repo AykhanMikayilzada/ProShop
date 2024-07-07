@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Image, Spinner } from "@chakra-ui/react";
+import { Box, Image, Spinner, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, useDisclosure, Text } from "@chakra-ui/react";
 import { useTranslation } from "react-i18next";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -13,6 +13,8 @@ function AllProducts() {
   const [isMobile, setIsMobile] = useState(false);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [selectedImage, setSelectedImage] = useState(null);
 
   useEffect(() => {
     AOS.init({
@@ -61,6 +63,11 @@ function AllProducts() {
     fetchImages();
   }, []);
 
+  const handleImageClick = (url) => {
+    setSelectedImage(url);
+    onOpen();
+  };
+
   return (
     <>
       <Header />
@@ -106,6 +113,7 @@ function AllProducts() {
                 _hover={{ cursor: "pointer" }}
                 data-aos="fade"
                 data-aos-once="true"
+                onClick={() => handleImageClick(url)}
               >
                 <Image
                   src={url}
@@ -118,12 +126,38 @@ function AllProducts() {
                   transition="transform 0.3s ease"
                   _hover={{ transform: "translateX(-50%) scale(1.1)" }}
                 />
+                <Box
+                  display="flex"
+                  justifyContent="center"
+                  mt="100px"
+                  alignItems="center"
+                >
+                  <Text
+                    textColor="black"
+                    fontWeight="bold"
+                    textAlign="center"
+                    fontSize={{ base: "16px", sm: "18px" }}
+                  >
+                    {url.split("/").pop().split(".")[0]}
+                  </Text>
+                </Box>
               </Box>
             ))
           )}
         </Box>
       </Box>
       <FooterSide />
+
+      <Modal isOpen={isOpen} onClose={onClose}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{t("imageReview")}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image src={selectedImage} w="100%" h="auto" />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Box, Text, Image, Spinner } from '@chakra-ui/react';
+import { Box, Text, Image, Spinner, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton } from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 import Header from '../../../components/Header';
 import FooterSide from '../../../components/FooterSide';
@@ -11,6 +11,9 @@ function Outdoor() {
   const [isMobile, setIsMobile] = useState(false);
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [texts, setTexts] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -36,6 +39,14 @@ function Outdoor() {
         );
         const urls = await Promise.all(urlPromises);
         setImages(urls);
+
+        const textPromises = result.items.map((item) => {
+          const name = item.name;
+          const nameWithoutExtension = name.substring(0, name.lastIndexOf('.'));
+          return nameWithoutExtension;
+        });
+        setTexts(textPromises);
+
         setLoading(false);
       } catch (error) {
         console.error('Error fetching images from Firebase:', error);
@@ -44,6 +55,16 @@ function Outdoor() {
 
     fetchImages();
   }, []);
+
+  const handleImageClick = (url) => {
+    setSelectedImage(url);
+    setIsOpen(true);
+  };
+
+  const handleCloseModal = () => {
+    setIsOpen(false);
+    setSelectedImage(null);
+  };
 
   return (
     <>
@@ -96,6 +117,7 @@ function Outdoor() {
                 mt={!isMobile ? '100px' : '70px'}
                 overflow="visible"
                 _hover={{ cursor: 'pointer' }}
+                onClick={() => handleImageClick(url)}
               >
                 <Image
                   src={url}
@@ -115,6 +137,14 @@ function Outdoor() {
                   mt="100px"
                   alignItems="center"
                 >
+                  <Text
+                    textColor="black"
+                    fontWeight="bold"
+                    textAlign="center"
+                    fontSize={{ base: '16px', sm: '18px' }}
+                  >
+                    {texts[index]}
+                  </Text>
                 </Box>
               </Box>
             ))
@@ -122,6 +152,17 @@ function Outdoor() {
         </Box>
       </Box>
       <FooterSide />
+
+      <Modal isOpen={isOpen} onClose={handleCloseModal}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>{t('imageReview')}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <Image src={selectedImage} w="100%" h="auto" />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 }
